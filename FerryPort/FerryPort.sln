@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.33529.398
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FerryPort", "FerryPort\FerryPort.csproj", "{709A0847-C364-4BD9-888A-ACE759690803}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{709A0847-C364-4BD9-888A-ACE759690803}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{709A0847-C364-4BD9-888A-ACE759690803}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{709A0847-C364-4BD9-888A-ACE759690803}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{709A0847-C364-4BD9-888A-ACE759690803}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {584200AA-E5F7-4AB9-BFC3-83B924414B2E}
+	EndGlobalSection
+EndGlobal
