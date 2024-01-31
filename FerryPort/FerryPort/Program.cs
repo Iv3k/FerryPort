@@ -14,7 +14,6 @@ namespace FerryPort
 
             Bus bus = new Bus();
 
-            Console.WriteLine("Bus fuel level is " + bus.GetFuelState());
         }
     }
 }

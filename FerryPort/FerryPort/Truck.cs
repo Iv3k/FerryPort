@@ -2,7 +2,11 @@
 
 namespace FerryPort
 {
-    class Truck
+    class Truck : Vehicle, ICargo
     {
+        public void OpenCloseCargoDoor()
+        {
+            _doorState = !_doorState;
+        }
     }
 }
