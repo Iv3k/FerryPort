@@ -10,6 +10,7 @@ namespace FerryPort
     {
         static void Main(string[] args)
         {
+            Ferry smallFerry = new Ferry("small");
         }
     }
 }
