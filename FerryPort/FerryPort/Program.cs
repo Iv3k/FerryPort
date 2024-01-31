@@ -11,6 +11,10 @@ namespace FerryPort
         static void Main(string[] args)
         {
             Ferry smallFerry = new Ferry("small");
+
+            Bus bus = new Bus();
+
+            Console.WriteLine("Bus fuel level is " + bus.GetFuelState());
         }
     }
 }

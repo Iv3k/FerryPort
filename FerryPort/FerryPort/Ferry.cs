@@ -37,6 +37,7 @@ namespace FerryPort
 
         private void SetTransportationPrice(float price)
         {
+            // TODO
             _transportationPrice = price;
         }
     }
