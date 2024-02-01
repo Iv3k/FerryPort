@@ -10,8 +10,8 @@ namespace FerryPort
     {
         static void Main(string[] args)
         {
-            Ferry small = new SmallFerry();
-            Ferry large = new LargeFerry();
+            Ferry smallFerry = new SmallFerry();
+            Ferry largeFerry = new LargeFerry();
 
             Vehicle car = new Car();
             Vehicle bus = new Bus();
@@ -23,21 +23,23 @@ namespace FerryPort
             string loop = "gameOn";
             while (loop != "e")
             {
-                if(large.CanBoardVehicle())
+                if(smallFerry.CanBoardVehicle())
                 {
-                    bus.RandomizeFuelLevel();
+                    car.RandomizeFuelLevel();
 
                     // Arrival
-                    large.SetTransportationPrice(bus);
+                    smallFerry.DetermineTicketPrice(car);
                     //TODO
                     // Check fuel amount
-                    Console.WriteLine($"Fuel level is on {bus.GetFuelInPercentage()}%"); 
+                    Console.WriteLine($"Fuel level is on {car.GetFuelInPercentage()}%"); 
                     // Price determination
-                    Console.WriteLine($"Ticket price {large.GetTicketPrice()}");
+                    Console.WriteLine($"Ticket price {smallFerry.GetTicketPrice()}");
                     // Clerk's fee
-                    clerk.IncreaseIncome(large.GetTicketPrice());
+                    float clerksCut = clerk.GetFeeAmount() * smallFerry.GetTicketPrice();
+                    clerk.IncreaseIncome(clerksCut);
+                    smallFerry.DecreaseRevenue(clerksCut);
                     // Onboarding
-                    large.DecreaseCapacity();
+                    smallFerry.DecreaseCapacity();
 
                     clerk.ShowIncome();
                 }
@@ -47,9 +49,9 @@ namespace FerryPort
                     Console.WriteLine("No more space in the ferry");
                 }
 
-                //Console.WriteLine("\n");
-                //Console.WriteLine($"Small ferry revenue is {small.ShowRevenue()}");
-                Console.WriteLine($"Large ferry revenue is {large.ShowRevenue()}");
+                Console.WriteLine("\n");
+                Console.WriteLine($"Small ferry revenue is {smallFerry.ShowRevenue()}");
+                //Console.WriteLine($"Large ferry revenue is {largeFerry.ShowRevenue()}");
 
                 loop = Console.ReadLine();
 

@@ -12,7 +12,7 @@ namespace FerryPort
             _capacity = 8;
         }
 
-        public override void SetTransportationPrice(Vehicle vehicle)
+        public override void DetermineTicketPrice(Vehicle vehicle)
         {
             if (GetVehicleType(vehicle) == "bus")
                 _transportationPrice = _busPrice;

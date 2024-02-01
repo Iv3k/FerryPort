@@ -13,7 +13,7 @@ namespace FerryPort
             return _capacity;
         }
 
-        public virtual void SetTransportationPrice(Vehicle vehicle)
+        public virtual void DetermineTicketPrice(Vehicle vehicle)
         {
             
         }
@@ -47,6 +47,11 @@ namespace FerryPort
         {
             _capacity--;
             Console.WriteLine($"Capacity {_capacity}");
+        }
+
+        public void DecreaseRevenue(float amount)
+        {
+            _revenue -= amount;
         }
 
         public float ShowRevenue()

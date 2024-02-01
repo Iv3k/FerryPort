@@ -19,8 +19,7 @@ namespace FerryPort
 
         public void IncreaseIncome(float amount)
         {
-            float fee = amount * _feeAmount;
-            _income += fee;
+            _income += amount;
         }
     }
 }
