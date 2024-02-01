@@ -29,15 +29,12 @@ namespace FerryPort
 
                     // Arrival
                     smallFerry.DetermineTicketPrice(van);
-                    //TODO
                     // Check fuel amount
-                    Console.WriteLine($"Fuel level is on {van.GetFuelInPercentage()}%"); 
+                    Console.WriteLine($"Fuel level is on {van.GetFuelInPercentage()}%");
                     // Price determination
                     Console.WriteLine($"Ticket price {smallFerry.GetTicketPrice()}");
                     // Clerk's fee
-                    float clerksCut = clerk.GetFeeAmount() * smallFerry.GetTicketPrice();
-                    clerk.IncreaseIncome(clerksCut);
-                    smallFerry.DecreaseRevenue(clerksCut);
+                    ClerkFee(smallFerry, clerk);
                     // Onboarding
                     smallFerry.DecreaseCapacity();
 
@@ -57,6 +54,13 @@ namespace FerryPort
 
             }
 
+        }
+
+        private static void ClerkFee(Ferry smallFerry, TerminalClerk clerk)
+        {
+            float clerksCut = clerk.GetFeeAmount() * smallFerry.GetTicketPrice();
+            clerk.IncreaseIncome(clerksCut);
+            smallFerry.DecreaseRevenue(clerksCut);
         }
     }
 }
