@@ -7,7 +7,7 @@ namespace FerryPort
         public Truck()
 	    {
             _vehicleType = "truck";
-            _fuelMaxCapacity = 900;
+            _fuelMaxCapacity = 900f;
         }
 
         public void OpenCloseCargoDoor()

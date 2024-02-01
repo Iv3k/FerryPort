@@ -7,7 +7,7 @@ namespace FerryPort
         public Car()
 	    {
             _vehicleType = "car";
-            _fuelMaxCapacity = 70;
+            _fuelMaxCapacity = 70f;
 	    }
     }
 }

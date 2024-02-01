@@ -36,13 +36,9 @@ namespace FerryPort
             Console.WriteLine($"Fuel amount: {_currentFuel}");
         }
 
-        public float GetFuelInPercentage()
+        public int GetFuelInPercentage()
         {
-            float fuelPercentage = (_currentFuel / _fuelMaxCapacity) * 100;
-
-            int roundedPercentage = (int)Math.Round(fuelPercentage);
-
-            return roundedPercentage;
+            return (int)Math.Round((_currentFuel / _fuelMaxCapacity) * 100); 
         }
     }
 }

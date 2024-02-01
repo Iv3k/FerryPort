@@ -25,13 +25,13 @@ namespace FerryPort
             {
                 if(smallFerry.CanBoardVehicle())
                 {
-                    car.RandomizeFuelLevel();
+                    van.RandomizeFuelLevel();
 
                     // Arrival
-                    smallFerry.DetermineTicketPrice(car);
+                    smallFerry.DetermineTicketPrice(van);
                     //TODO
                     // Check fuel amount
-                    Console.WriteLine($"Fuel level is on {car.GetFuelInPercentage()}%"); 
+                    Console.WriteLine($"Fuel level is on {van.GetFuelInPercentage()}%"); 
                     // Price determination
                     Console.WriteLine($"Ticket price {smallFerry.GetTicketPrice()}");
                     // Clerk's fee
