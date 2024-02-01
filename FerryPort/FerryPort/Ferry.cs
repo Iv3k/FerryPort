@@ -17,6 +17,8 @@ namespace FerryPort
         const float _vanPrice = 5;
         const float _truckPrice = 6;
 
+        float _revenue = 0;
+
         public Ferry(string type)
         {
             _type = type;
@@ -54,7 +56,14 @@ namespace FerryPort
             else if(typeOfVehicle == "truck")
                 _transportationPrice = _truckPrice;
 
+            _revenue += _transportationPrice;
+
             Console.WriteLine($"Price for the {typeOfVehicle} is {_transportationPrice}");
+        }
+
+        public float ShowRevenue()
+        {
+            return _revenue;
         }
     }
 }

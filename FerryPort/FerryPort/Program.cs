@@ -25,6 +25,8 @@ namespace FerryPort
                 smallFerry.SetTransportationPrice(van);
                 smallFerry.SetTransportationPrice(truck);
 
+                Console.WriteLine($"Ferry revenue is {smallFerry.ShowRevenue()}");
+
                 loop = Console.ReadLine();
 
             }
