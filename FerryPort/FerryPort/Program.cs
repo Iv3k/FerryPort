@@ -30,7 +30,11 @@ namespace FerryPort
                     // Arrival
                     smallFerry.DetermineTicketPrice(van);
                     // Check fuel amount
-                    Console.WriteLine($"Fuel level is on {van.GetFuelInPercentage()}%");
+                    int fuelLevel = van.GetFuelInPercentage();
+                    Console.WriteLine($"Fuel level is on {fuelLevel}%");
+
+                    if(clerk.CheckFuelLevel(fuelLevel))
+                        Console.WriteLine("Go to gas station");
                     // Price determination
                     Console.WriteLine($"Ticket price {smallFerry.GetTicketPrice()}");
                     // Clerk's fee

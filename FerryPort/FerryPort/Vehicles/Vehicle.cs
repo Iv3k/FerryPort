@@ -32,8 +32,6 @@ namespace FerryPort
             float randomFuel = (float)random.NextDouble() * _fuelMaxCapacity;
 
             _currentFuel = randomFuel;
-
-            Console.WriteLine($"Fuel amount: {_currentFuel}");
         }
 
         public int GetFuelInPercentage()

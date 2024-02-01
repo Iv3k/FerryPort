@@ -5,7 +5,8 @@ namespace FerryPort
     class TerminalClerk
     {
         float _income = 0;
-        float _feeAmount = 0.10f;
+        const float _feeAmount = 0.10f;
+        const int _fillingLimit = 10;
 
         public void ShowIncome()
         {
@@ -20,6 +21,14 @@ namespace FerryPort
         public void IncreaseIncome(float amount)
         {
             _income += amount;
+        }
+
+        public bool CheckFuelLevel(int fuelLevel)
+        {
+            if (fuelLevel < _fillingLimit)
+                return true;
+            else
+                return false;
         }
     }
 }
