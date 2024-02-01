@@ -12,10 +12,10 @@ namespace FerryPort
         {
             Ferry smallFerry = new Ferry("small");
 
-            Vehicle car = new Car("car");
-            Vehicle bus = new Bus("bus");
-            Vehicle van = new Van("van");
-            Vehicle truck = new Truck("truck");
+            Vehicle car = new Car();
+            Vehicle bus = new Bus();
+            Vehicle van = new Van();
+            Vehicle truck = new Truck();
 
             string loop = "gameOn";
             while (loop != "e")

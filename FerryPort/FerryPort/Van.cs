@@ -4,9 +4,9 @@ namespace FerryPort
 {
     class Van : Vehicle
     {
-        public Van (string type)
+        public Van()
 	    {
-            _vehicleType = type;
+            _vehicleType = "van";
 	    }
     }
 }

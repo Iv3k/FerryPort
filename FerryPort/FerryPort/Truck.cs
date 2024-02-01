@@ -4,9 +4,9 @@ namespace FerryPort
 {
     class Truck : Vehicle, ICargo
     {
-        public Truck (string type)
+        public Truck()
 	    {
-            _vehicleType = type;
+            _vehicleType = "truck";
 	    }
 
         public void OpenCloseCargoDoor()

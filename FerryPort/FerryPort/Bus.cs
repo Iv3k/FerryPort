@@ -4,9 +4,9 @@ namespace FerryPort
 {
     class Bus : Vehicle, ICargo
     {
-        public Bus (string type)
+        public Bus()
 	    {
-            _vehicleType = type;
+            _vehicleType = "bus";
 	    }
 
         public void OpenCloseCargoDoor()
