@@ -14,11 +14,9 @@ namespace FerryPort
 
         public override void SetTransportationPrice(Vehicle vehicle)
         {
-            string typeOfVehicle = vehicle.GetVehicleType();
-
-            if(typeOfVehicle == "car")
+            if(GetVehicleType(vehicle) == "car")
                 _transportationPrice = _carPrice;
-            else if(typeOfVehicle == "van")
+            else if(GetVehicleType(vehicle) == "van")
                 _transportationPrice = _vanPrice;
         }
     }

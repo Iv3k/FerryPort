@@ -22,6 +22,13 @@ namespace FerryPort
             
         }
 
+        public string GetVehicleType(Vehicle vehicle)
+        {
+            string typeOfVehicle = vehicle.GetVehicleType();
+
+            return typeOfVehicle;
+        }
+
         public float ShowRevenue()
         {
             return _revenue;
