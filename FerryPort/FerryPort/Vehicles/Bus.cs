@@ -2,17 +2,12 @@
 
 namespace FerryPort
 {
-    class Bus : Vehicle, ICargo
+    class Bus : Vehicle
     {
         public Bus()
 	    {
             _vehicleType = "bus";
             _fuelMaxCapacity = 250f;
 	    }
-
-        public void OpenCloseCargoDoor()
-        {
-            _doorState = !_doorState;
-        }
     }
 }

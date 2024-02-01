@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -39,7 +38,7 @@ namespace FerryPort
 
                 // Check fuel amount
                 int fuelLevel = vehicle.GetFuelInPercentage();
-                //Console.WriteLine($"Fuel level is on {fuelLevel}%");
+                Console.WriteLine($"Fuel level is on {fuelLevel}%");
                 /*if (clerk.NeedsRefuel(fuelLevel))
                 {
                     Console.WriteLine("Tank refueled");
@@ -87,6 +86,8 @@ namespace FerryPort
 
         private static Vehicle RandomVehicle(List<Vehicle> vehicles, Vehicle car, Vehicle bus, Vehicle van, Vehicle truck)
         {
+            vehicles.Clear();
+
             vehicles.Add(car);
             vehicles.Add(bus);
             vehicles.Add(van);
