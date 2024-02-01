@@ -6,11 +6,10 @@ namespace FerryPort
     {
         protected int _capacity;
         protected float _transportationPrice;
+        protected float _revenue = 0;
 
         const float _busPrice = 4;
         const float _truckPrice = 6;
-
-        float _revenue = 0;
 
         public int GetCapacity()
         {
@@ -27,6 +26,24 @@ namespace FerryPort
             string typeOfVehicle = vehicle.GetVehicleType();
 
             return typeOfVehicle;
+        }
+
+        public bool CanBoardVehicle()
+        {
+            if(_capacity > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void DecreaseCapacity()
+        {
+            _capacity--;
+            Console.WriteLine($"Capacity {_capacity}");
         }
 
         public float ShowRevenue()

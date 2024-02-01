@@ -18,6 +18,8 @@ namespace FerryPort
                 _transportationPrice = _busPrice;
             else if (GetVehicleType(vehicle) == "truck")
                 _transportationPrice = _truckPrice;
+
+            _revenue += _transportationPrice;
         }
     }
 }

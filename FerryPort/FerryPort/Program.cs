@@ -21,15 +21,22 @@ namespace FerryPort
             string loop = "gameOn";
             while (loop != "e")
             {
-                small.SetTransportationPrice(car);
-                small.SetTransportationPrice(van);
+                if(small.CanBoardVehicle())
+                {
+                    small.SetTransportationPrice(car);
+                    small.DecreaseCapacity();
+                    small.SetTransportationPrice(van);
+                    small.DecreaseCapacity();
+                }
+                else
+                {
+                    // In the future, add new ferry
+                    Console.WriteLine("No more space in the ferry");
+                }
 
-                large.SetTransportationPrice(bus);
-                large.SetTransportationPrice(truck);
-
-                Console.WriteLine("\n");
+                //Console.WriteLine("\n");
                 Console.WriteLine($"Small ferry revenue is {small.ShowRevenue()}");
-                Console.WriteLine($"Large ferry revenue is {large.ShowRevenue()}");
+                //Console.WriteLine($"Large ferry revenue is {large.ShowRevenue()}");
 
                 loop = Console.ReadLine();
 
