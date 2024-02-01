@@ -5,9 +5,15 @@ namespace FerryPort
     class Vehicle
     {
         protected bool _doorState;
+        protected string _vehicleType;
 
         float _fuelMaxCapacity;
         float _currentFuel;
+
+        public string GetVehicleType()
+        {
+            return _vehicleType;
+        }
 
         public float GetFuelState()
         {

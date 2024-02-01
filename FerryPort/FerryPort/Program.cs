@@ -12,7 +12,22 @@ namespace FerryPort
         {
             Ferry smallFerry = new Ferry("small");
 
-            Bus bus = new Bus();
+            Vehicle car = new Car("car");
+            Vehicle bus = new Bus("bus");
+            Vehicle van = new Van("van");
+            Vehicle truck = new Truck("truck");
+
+            string loop = "gameOn";
+            while (loop != "e")
+            {
+                smallFerry.SetTransportationPrice(car);
+                smallFerry.SetTransportationPrice(bus);
+                smallFerry.SetTransportationPrice(van);
+                smallFerry.SetTransportationPrice(truck);
+
+                loop = Console.ReadLine();
+
+            }
 
         }
     }

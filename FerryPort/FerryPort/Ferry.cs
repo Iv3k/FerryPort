@@ -12,6 +12,11 @@ namespace FerryPort
         int _capacity;
         float _transportationPrice;
 
+        const float _carPrice = 3;
+        const float _busPrice = 4;
+        const float _vanPrice = 5;
+        const float _truckPrice = 6;
+
         public Ferry(string type)
         {
             _type = type;
@@ -35,10 +40,21 @@ namespace FerryPort
             return _transportationPrice;
         }
 
-        private void SetTransportationPrice(float price)
+        public void SetTransportationPrice(Vehicle vehicle)
         {
-            // TODO
-            _transportationPrice = price;
+            string typeOfVehicle = vehicle.GetVehicleType();
+
+            // Price setting based on the type of the given vehicle
+            if(typeOfVehicle == "car")
+                _transportationPrice = _carPrice;
+            else if(typeOfVehicle == "bus")
+                _transportationPrice = _busPrice;
+            else if(typeOfVehicle == "van")
+                _transportationPrice = _vanPrice;
+            else if(typeOfVehicle == "truck")
+                _transportationPrice = _truckPrice;
+
+            Console.WriteLine($"Price for the {typeOfVehicle} is {_transportationPrice}");
         }
     }
 }
