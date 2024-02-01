@@ -51,6 +51,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SmallFerry.cs" />
+    <Compile Include="TerminalClerk.cs" />
     <Compile Include="Truck.cs" />
     <Compile Include="Van.cs" />
     <Compile Include="Vehicle.cs" />

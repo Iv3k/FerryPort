@@ -18,8 +18,15 @@ namespace FerryPort
                 _transportationPrice = _carPrice;
             else if(GetVehicleType(vehicle) == "van")
                 _transportationPrice = _vanPrice;
+            else
+                Console.WriteLine("Wrong type of the vehicle!");
 
             _revenue += _transportationPrice;
+        }
+
+        public override float GetTicketPrice()
+        {
+            return base.GetTicketPrice();
         }
     }
 }

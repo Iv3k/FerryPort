@@ -8,9 +8,6 @@ namespace FerryPort
         protected float _transportationPrice;
         protected float _revenue = 0;
 
-        const float _busPrice = 4;
-        const float _truckPrice = 6;
-
         public int GetCapacity()
         {
             return _capacity;
@@ -19,6 +16,11 @@ namespace FerryPort
         public virtual void SetTransportationPrice(Vehicle vehicle)
         {
             
+        }
+
+        public virtual float GetTicketPrice()
+        {
+            return _transportationPrice;
         }
 
         public string GetVehicleType(Vehicle vehicle)

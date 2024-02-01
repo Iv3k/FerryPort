@@ -18,15 +18,31 @@ namespace FerryPort
             Vehicle van = new Van();
             Vehicle truck = new Truck();
 
+            TerminalClerk clerk = new TerminalClerk();
+
             string loop = "gameOn";
             while (loop != "e")
             {
-                if(small.CanBoardVehicle())
+                if(large.CanBoardVehicle())
                 {
-                    small.SetTransportationPrice(car);
-                    small.DecreaseCapacity();
-                    small.SetTransportationPrice(van);
-                    small.DecreaseCapacity();
+                    // Arrival
+                    large.SetTransportationPrice(bus);
+                    //TODO
+                    // Check fuel amount
+
+                    // Price determination
+                    Console.WriteLine($"Ticket price {large.GetTicketPrice()}");
+                    // Clerk's fee
+                    clerk.IncreaseIncome(large.GetTicketPrice());
+                    // Onboarding
+                    large.DecreaseCapacity();
+
+                    large.SetTransportationPrice(truck);
+                    Console.WriteLine($"Ticket price {large.GetTicketPrice()}");
+                    clerk.IncreaseIncome(large.GetTicketPrice());
+                    large.DecreaseCapacity();
+
+                    clerk.ShowIncome();
                 }
                 else
                 {
@@ -35,8 +51,8 @@ namespace FerryPort
                 }
 
                 //Console.WriteLine("\n");
-                Console.WriteLine($"Small ferry revenue is {small.ShowRevenue()}");
-                //Console.WriteLine($"Large ferry revenue is {large.ShowRevenue()}");
+                //Console.WriteLine($"Small ferry revenue is {small.ShowRevenue()}");
+                Console.WriteLine($"Large ferry revenue is {large.ShowRevenue()}");
 
                 loop = Console.ReadLine();
 
