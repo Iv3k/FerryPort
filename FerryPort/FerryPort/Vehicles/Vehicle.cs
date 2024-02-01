@@ -15,11 +15,6 @@ namespace FerryPort
             return _vehicleType;
         }
 
-        public float GetFuelState()
-        {
-            return _currentFuel;
-        }
-
         public bool GetDoorState()
         {
             return _doorState;

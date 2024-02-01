@@ -10,8 +10,10 @@ namespace FerryPort
     {
         static void Main(string[] args)
         {
-            Ferry smallFerry = new SmallFerry();
-            Ferry largeFerry = new LargeFerry();
+            List<Vehicle> vehicles = new List<Vehicle>();
+
+            Vehicle vehicle = new Vehicle();
+            Ferry ferry = new Ferry();
 
             Vehicle car = new Car();
             Vehicle bus = new Bus();
@@ -23,48 +25,76 @@ namespace FerryPort
             string loop = "gameOn";
             while (loop != "e")
             {
-                if(smallFerry.CanBoardVehicle())
+                // Store the value of the random vehicle from the to the vehicle object
+                vehicle = RandomVehicle(vehicles, car, bus, van, truck);
+                vehicle.RandomizeFuelLevel();
+                Console.WriteLine($"Vehicle type {vehicle.GetVehicleType()}");
+
+                // Check fuel amount
+                int fuelLevel = vehicle.GetFuelInPercentage();
+                //Console.WriteLine($"Fuel level is on {fuelLevel}%");
+                /*if (clerk.NeedsRefuel(fuelLevel))
                 {
-                    van.RandomizeFuelLevel();
+                    Console.WriteLine("Tank refueled");
 
-                    // Arrival
-                    smallFerry.DetermineTicketPrice(van);
-                    // Check fuel amount
-                    int fuelLevel = van.GetFuelInPercentage();
-                    Console.WriteLine($"Fuel level is on {fuelLevel}%");
-
-                    if(clerk.CheckFuelLevel(fuelLevel))
-                        Console.WriteLine("Go to gas station");
-                    // Price determination
-                    Console.WriteLine($"Ticket price {smallFerry.GetTicketPrice()}");
-                    // Clerk's fee
-                    ClerkFee(smallFerry, clerk);
-                    // Onboarding
-                    smallFerry.DecreaseCapacity();
-
-                    clerk.ShowIncome();
-                }
-                else
+                }*/         
+                // Logic for small ferry
+                if (vehicle.GetVehicleType() == "car" || vehicle.GetVehicleType() == "van")
                 {
-                    // In the future, add new ferry
-                    Console.WriteLine("No more space in the ferry");
-                }
+                    // Create a ferry
+                    if (ferry.GetCapacity() == 0)
+                    {
+                        ferry = new SmallFerry();
+                    }
 
+                    // Check capacity
+                    if (ferry.CanBoardVehicle())
+                    {
+                        // Price determination on arrival
+                        ferry.DetermineTicketPrice(vehicle);
+                        Console.WriteLine($"Ticket price {ferry.GetTicketPrice()}");
+
+                        // Clerk's fee
+                        ClerkFee(ferry, clerk);
+
+                        // Onboarding
+                        ferry.DecreaseCapacity();
+
+                        Console.WriteLine($"Small ferry revenue is {ferry.ShowRevenue()}");
+                    }
+                    else
+                    {
+                        // In the future, add new ferry
+                        Console.WriteLine("No more space in the ferry");
+                    }
+                }
+                
                 Console.WriteLine("\n");
-                Console.WriteLine($"Small ferry revenue is {smallFerry.ShowRevenue()}");
-                //Console.WriteLine($"Large ferry revenue is {largeFerry.ShowRevenue()}");
 
+                clerk.ShowIncome();
                 loop = Console.ReadLine();
-
             }
 
         }
 
-        private static void ClerkFee(Ferry smallFerry, TerminalClerk clerk)
+        private static Vehicle RandomVehicle(List<Vehicle> vehicles, Vehicle car, Vehicle bus, Vehicle van, Vehicle truck)
         {
-            float clerksCut = clerk.GetFeeAmount() * smallFerry.GetTicketPrice();
+            vehicles.Add(car);
+            vehicles.Add(bus);
+            vehicles.Add(van);
+            vehicles.Add(truck);
+
+            Random random = new Random();
+            int randomVehicle = random.Next(vehicles.Count);
+
+            return vehicles[randomVehicle];
+        }
+
+        private static void ClerkFee(Ferry ferry, TerminalClerk clerk)
+        {
+            float clerksCut = clerk.GetFeeAmount() * ferry.GetTicketPrice();
             clerk.IncreaseIncome(clerksCut);
-            smallFerry.DecreaseRevenue(clerksCut);
+            ferry.DecreaseRevenue(clerksCut);
         }
     }
 }

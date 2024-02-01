@@ -23,7 +23,7 @@ namespace FerryPort
             _income += amount;
         }
 
-        public bool CheckFuelLevel(int fuelLevel)
+        public bool NeedsRefuel(int fuelLevel)
         {
             if (fuelLevel < _fillingLimit)
                 return true;
