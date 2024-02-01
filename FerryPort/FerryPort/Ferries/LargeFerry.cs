@@ -9,7 +9,7 @@ namespace FerryPort
 
         public LargeFerry()
         {
-            _capacity = 8;
+            _capacity = 6;
         }
 
         public override void DetermineTicketPrice(Vehicle vehicle)

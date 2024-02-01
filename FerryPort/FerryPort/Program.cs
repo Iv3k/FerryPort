@@ -13,7 +13,8 @@ namespace FerryPort
             List<Vehicle> vehicles = new List<Vehicle>();
 
             Vehicle vehicle = new Vehicle();
-            Ferry ferry = new Ferry();
+            Ferry smallFerry = new Ferry();
+            Ferry largeFerry = new Ferry();
 
             Vehicle car = new Car();
             Vehicle bus = new Bus();
@@ -24,11 +25,17 @@ namespace FerryPort
 
             string loop = "gameOn";
             while (loop != "e")
-            {
+            {               
                 // Store the value of the random vehicle from the to the vehicle object
                 vehicle = RandomVehicle(vehicles, car, bus, van, truck);
                 vehicle.RandomizeFuelLevel();
                 Console.WriteLine($"Vehicle type {vehicle.GetVehicleType()}");
+
+                if (smallFerry.GetCapacity() == 0)
+                    smallFerry = new SmallFerry();
+
+                if (largeFerry.GetCapacity() == 0)
+                    largeFerry = new LargeFerry();
 
                 // Check fuel amount
                 int fuelLevel = vehicle.GetFuelInPercentage();
@@ -37,38 +44,54 @@ namespace FerryPort
                 {
                     Console.WriteLine("Tank refueled");
 
-                }*/         
+                }*/
                 // Logic for small ferry
                 if (vehicle.GetVehicleType() == "car" || vehicle.GetVehicleType() == "van")
                 {
-                    // Create a ferry
-                    if (ferry.GetCapacity() == 0)
-                    {
-                        ferry = new SmallFerry();
-                    }
-
                     // Check capacity
-                    if (ferry.CanBoardVehicle())
+                    if (smallFerry.CanBoardVehicle())
                     {
                         // Price determination on arrival
-                        ferry.DetermineTicketPrice(vehicle);
-                        Console.WriteLine($"Ticket price {ferry.GetTicketPrice()}");
+                        smallFerry.DetermineTicketPrice(vehicle);
+                        Console.WriteLine($"Ticket price {smallFerry.GetTicketPrice()}");
 
-                        // Clerk's fee
-                        ClerkFee(ferry, clerk);
+                        ClerkFee(smallFerry, clerk);
 
                         // Onboarding
-                        ferry.DecreaseCapacity();
+                        smallFerry.DecreaseCapacity();
 
-                        Console.WriteLine($"Small ferry revenue is {ferry.ShowRevenue()}");
+                        Console.WriteLine($"Small ferry revenue is {smallFerry.ShowRevenue()}");
                     }
                     else
                     {
-                        // In the future, add new ferry
                         Console.WriteLine("No more space in the ferry");
                     }
                 }
-                
+                // Logic for large ferry
+                else if (vehicle.GetVehicleType() == "bus" || vehicle.GetVehicleType() == "truck")
+                {
+                    if (largeFerry.GetCapacity() == 0)
+                    {
+                        largeFerry = new LargeFerry();
+                    }
+
+                    if (largeFerry.CanBoardVehicle())
+                    {
+                        largeFerry.DetermineTicketPrice(vehicle);
+                        Console.WriteLine($"Ticket price {largeFerry.GetTicketPrice()}");
+
+                        ClerkFee(largeFerry, clerk);
+
+                        largeFerry.DecreaseCapacity();
+
+                        Console.WriteLine($"Large ferry revenue is {largeFerry.ShowRevenue()}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("No more space in the ferry");
+                    }
+                }
+
                 Console.WriteLine("\n");
 
                 clerk.ShowIncome();

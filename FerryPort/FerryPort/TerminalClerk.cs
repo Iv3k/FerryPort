@@ -10,7 +10,8 @@ namespace FerryPort
 
         public void ShowIncome()
         {
-            Console.WriteLine($"Clerk income {_income}");
+            // Representing value to maximum two digits
+            Console.WriteLine($"Clerk income {_income.ToString("F2")}");
         }
 
         public float GetFeeAmount()
