@@ -34,6 +34,7 @@ namespace FerryPort
         {
             if(_capacity > 0)
             {
+                Console.WriteLine("Onboard...");
                 return true;
             }
             else

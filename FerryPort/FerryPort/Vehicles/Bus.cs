@@ -7,6 +7,7 @@ namespace FerryPort
         public Bus()
 	    {
             _vehicleType = "bus";
+            _fuelMaxCapacity = 250;
 	    }
 
         public void OpenCloseCargoDoor()

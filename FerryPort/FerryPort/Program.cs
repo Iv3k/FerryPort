@@ -25,21 +25,18 @@ namespace FerryPort
             {
                 if(large.CanBoardVehicle())
                 {
+                    bus.RandomizeFuelLevel();
+
                     // Arrival
                     large.SetTransportationPrice(bus);
                     //TODO
                     // Check fuel amount
-
+                    Console.WriteLine($"Fuel level is on {bus.GetFuelInPercentage()}%"); 
                     // Price determination
                     Console.WriteLine($"Ticket price {large.GetTicketPrice()}");
                     // Clerk's fee
                     clerk.IncreaseIncome(large.GetTicketPrice());
                     // Onboarding
-                    large.DecreaseCapacity();
-
-                    large.SetTransportationPrice(truck);
-                    Console.WriteLine($"Ticket price {large.GetTicketPrice()}");
-                    clerk.IncreaseIncome(large.GetTicketPrice());
                     large.DecreaseCapacity();
 
                     clerk.ShowIncome();
