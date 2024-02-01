@@ -45,50 +45,35 @@ namespace FerryPort
                     Console.WriteLine("Tank refueled");
 
                 }*/
-                // Logic for small ferry
+
+                // Small ferry
                 if (vehicle.GetVehicleType() == "car" || vehicle.GetVehicleType() == "van")
                 {
                     // Check capacity
                     if (smallFerry.CanBoardVehicle())
                     {
-                        // Price determination on arrival
                         smallFerry.DetermineTicketPrice(vehicle);
-                        Console.WriteLine($"Ticket price {smallFerry.GetTicketPrice()}");
 
                         ClerkFee(smallFerry, clerk);
 
-                        // Onboarding
                         smallFerry.DecreaseCapacity();
 
                         Console.WriteLine($"Small ferry revenue is {smallFerry.ShowRevenue()}");
                     }
-                    else
-                    {
-                        Console.WriteLine("No more space in the ferry");
-                    }
+
                 }
-                // Logic for large ferry
+                // Large ferry
                 else if (vehicle.GetVehicleType() == "bus" || vehicle.GetVehicleType() == "truck")
                 {
-                    if (largeFerry.GetCapacity() == 0)
-                    {
-                        largeFerry = new LargeFerry();
-                    }
-
                     if (largeFerry.CanBoardVehicle())
                     {
                         largeFerry.DetermineTicketPrice(vehicle);
-                        Console.WriteLine($"Ticket price {largeFerry.GetTicketPrice()}");
 
                         ClerkFee(largeFerry, clerk);
 
                         largeFerry.DecreaseCapacity();
 
                         Console.WriteLine($"Large ferry revenue is {largeFerry.ShowRevenue()}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("No more space in the ferry");
                     }
                 }
 
