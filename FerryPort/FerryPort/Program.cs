@@ -10,7 +10,8 @@ namespace FerryPort
     {
         static void Main(string[] args)
         {
-            Ferry smallFerry = new Ferry("small");
+            Ferry small = new SmallFerry();
+            Ferry large = new LargeFerry();
 
             Vehicle car = new Car();
             Vehicle bus = new Bus();
@@ -20,12 +21,15 @@ namespace FerryPort
             string loop = "gameOn";
             while (loop != "e")
             {
-                smallFerry.SetTransportationPrice(car);
-                smallFerry.SetTransportationPrice(bus);
-                smallFerry.SetTransportationPrice(van);
-                smallFerry.SetTransportationPrice(truck);
+                small.SetTransportationPrice(car);
+                small.SetTransportationPrice(van);
 
-                Console.WriteLine($"Ferry revenue is {smallFerry.ShowRevenue()}");
+                large.SetTransportationPrice(bus);
+                large.SetTransportationPrice(truck);
+
+                Console.WriteLine("\n");
+                Console.WriteLine($"Small ferry revenue is {small.ShowRevenue()}");
+                Console.WriteLine($"Large ferry revenue is {large.ShowRevenue()}");
 
                 loop = Console.ReadLine();
 
