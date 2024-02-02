@@ -2,7 +2,7 @@
 
 namespace FerryPort
 {
-    class Truck : Vehicle, ICargo
+    class Truck : Cargo
     {
         public Truck()
 	    {
@@ -10,9 +10,5 @@ namespace FerryPort
             _fuelMaxCapacity = 900f;
         }
 
-        public void OpenCloseCargoDoor()
-        {
-            _doorState = !_doorState;
-        }
     }
 }

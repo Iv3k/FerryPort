@@ -4,20 +4,13 @@ namespace FerryPort
 {
     class Vehicle
     {
-        protected bool _doorState;
         protected string _vehicleType;
-
         protected float _fuelMaxCapacity;
         protected float _currentFuel;
 
         public string GetVehicleType()
         {
             return _vehicleType;
-        }
-
-        public bool GetDoorState()
-        {
-            return _doorState;
         }
         
         public void RandomizeFuelLevel()
@@ -33,5 +26,6 @@ namespace FerryPort
         {
             return (int)Math.Round((_currentFuel / _fuelMaxCapacity) * 100); 
         }
+
     }
 }

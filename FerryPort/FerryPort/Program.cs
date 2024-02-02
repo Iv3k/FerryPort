@@ -25,10 +25,14 @@ namespace FerryPort
             string loop = "gameOn";
             while (loop != "e")
             {               
-                // Store the value of the random vehicle from the to the vehicle object
+                // Store the value of the random vehicle from the list to the vehicle object
                 vehicle = RandomVehicle(vehicles, car, bus, van, truck);
                 vehicle.RandomizeFuelLevel();
-                Console.WriteLine($"Vehicle type {vehicle.GetVehicleType()}");
+
+                int fuelLevel = vehicle.GetFuelInPercentage();
+                string vehicleType = vehicle.GetVehicleType();
+
+                Console.WriteLine($"Vehicle type {vehicleType}");
 
                 if (smallFerry.GetCapacity() == 0)
                     smallFerry = new SmallFerry();
@@ -36,8 +40,6 @@ namespace FerryPort
                 if (largeFerry.GetCapacity() == 0)
                     largeFerry = new LargeFerry();
 
-                // Check fuel amount
-                int fuelLevel = vehicle.GetFuelInPercentage();
                 Console.WriteLine($"Fuel level is on {fuelLevel}%");
                 /*if (clerk.NeedsRefuel(fuelLevel))
                 {
@@ -45,8 +47,11 @@ namespace FerryPort
 
                 }*/
 
+                // Door manipulation
+                clerk.CargoInspection(vehicle);
+
                 // Small ferry
-                if (vehicle.GetVehicleType() == "car" || vehicle.GetVehicleType() == "van")
+                if (vehicleType == "car" || vehicleType == "van")
                 {
                     // Check capacity
                     if (smallFerry.CanBoardVehicle())

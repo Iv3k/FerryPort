@@ -31,5 +31,23 @@ namespace FerryPort
             else
                 return false;
         }
+
+        public void CargoInspection(Vehicle vehicle)
+        {
+            // If given vehicle is cargo type the code will execute
+            if(vehicle is Van van)
+            {
+                van.OpenCloseDoor();
+            }
+            else if(vehicle is Truck truck)
+            {
+                truck.OpenCloseDoor();
+            }
+            else
+            {
+                Console.WriteLine("Inspection is not required");
+            }
+        }
+
     }
 }
