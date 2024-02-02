@@ -32,6 +32,15 @@ namespace FerryPort
                 return false;
         }
 
+        // The clerk will always refuel at 30% of the maximum capacity
+        public int NewAmountOfFuel(Vehicle vehicle)
+        {
+            float maxCapacity = vehicle.GetMaxCapacityOfFuel();
+            int fuelToAdd = (int)( maxCapacity * 0.3);
+
+            return fuelToAdd;
+        }
+
         public void CargoInspection(Vehicle vehicle)
         {
             // If given vehicle is cargo type the code will execute

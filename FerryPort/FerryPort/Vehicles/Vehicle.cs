@@ -27,5 +27,15 @@ namespace FerryPort
             return (int)Math.Round((_currentFuel / _fuelMaxCapacity) * 100); 
         }
 
+        public float GetMaxCapacityOfFuel()
+        {
+            return _fuelMaxCapacity;
+        }
+
+        public void RefuelTank(float amount)
+        {
+            _currentFuel += amount;
+        }
+
     }
 }

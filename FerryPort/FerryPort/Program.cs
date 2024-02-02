@@ -42,9 +42,10 @@ namespace FerryPort
                 if (clerk.NeedsRefuel(fuelLevel))
                 {
                     isGoodFuelLevel = false;
-                    Console.WriteLine("Tank refueled");
 
-                    // TODO - Code for the refilling
+                    vehicle.RefuelTank(clerk.NewAmountOfFuel(vehicle));
+                    Console.WriteLine("Tank refueled");
+                    Console.WriteLine($"Fuel level is on {vehicle.GetFuelInPercentage()}%");
                     isGoodFuelLevel = true;
                 }
                 else
