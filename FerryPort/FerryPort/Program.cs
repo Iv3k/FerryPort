@@ -48,32 +48,13 @@ namespace FerryPort
                 // Small ferry
                 if (vehicleType == "car" || vehicleType == "van")
                 {
-                    // Check capacity
-                    if (smallFerry.CanBoardVehicle())
-                    {
-                        smallFerry.DetermineTicketPrice(vehicle);
-
-                        ClerkFee(smallFerry, clerk);
-
-                        smallFerry.DecreaseCapacity();
-
-                        Console.WriteLine($"Small ferry revenue is {smallFerry.ShowRevenue()}");
-                    }
+                    Onboarding(vehicle, smallFerry, clerk);
 
                 }
                 // Large ferry
-                else if (vehicle.GetVehicleType() == "bus" || vehicle.GetVehicleType() == "truck")
+                else if (vehicleType == "bus" || vehicleType == "truck")
                 {
-                    if (largeFerry.CanBoardVehicle())
-                    {
-                        largeFerry.DetermineTicketPrice(vehicle);
-
-                        ClerkFee(largeFerry, clerk);
-
-                        largeFerry.DecreaseCapacity();
-
-                        Console.WriteLine($"Large ferry revenue is {largeFerry.ShowRevenue()}");
-                    }
+                    Onboarding(vehicle, largeFerry, clerk);
                 }
 
                 Console.WriteLine("\n");
@@ -82,6 +63,21 @@ namespace FerryPort
                 loop = Console.ReadLine();
             }
 
+        }
+
+        private static void Onboarding(Vehicle vehicle, Ferry ferry, TerminalClerk clerk)
+        {
+            // Check capacity
+            if (ferry.CanBoardVehicle())
+            {
+                ferry.DetermineTicketPrice(vehicle);
+
+                ClerkFee(ferry, clerk);
+
+                ferry.DecreaseCapacity();
+
+                Console.WriteLine($"Ferry revenue is {ferry.ShowRevenue()}");
+            }
         }
 
         private static Vehicle RandomVehicle(List<Vehicle> vehicles)
