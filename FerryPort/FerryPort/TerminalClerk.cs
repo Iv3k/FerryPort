@@ -7,6 +7,7 @@ namespace FerryPort
         float _income = 0;
         const float _feeAmount = 0.10f;
         const int _fillingLimit = 10;
+        const float _percentageOfNewFuel = 0.3f;
 
         public void ShowIncome()
         {
@@ -36,7 +37,7 @@ namespace FerryPort
         public int NewAmountOfFuel(Vehicle vehicle)
         {
             float maxCapacity = vehicle.GetMaxCapacityOfFuel();
-            int fuelToAdd = (int)( maxCapacity * 0.3);
+            int fuelToAdd = (int)( maxCapacity * _percentageOfNewFuel);
 
             return fuelToAdd;
         }
