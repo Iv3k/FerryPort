@@ -17,6 +17,9 @@ namespace FerryPort
 
             TerminalClerk clerk = new TerminalClerk();
 
+            bool isGoodFuelLevel = true;
+            bool canOnboard = false;
+
             string loop = "gameOn";
             while (loop != "e")
             {               
@@ -36,25 +39,34 @@ namespace FerryPort
                     largeFerry = new LargeFerry();
 
                 Console.WriteLine($"Fuel level is on {fuelLevel}%");
-                /*if (clerk.NeedsRefuel(fuelLevel))
+                if (clerk.NeedsRefuel(fuelLevel))
                 {
+                    isGoodFuelLevel = false;
                     Console.WriteLine("Tank refueled");
 
-                }*/
-
-                // Door manipulation
-                clerk.CargoInspection(vehicle);
-
-                // Small ferry
-                if (vehicleType == "car" || vehicleType == "van")
-                {
-                    Onboarding(vehicle, smallFerry, clerk);
-
+                    // TODO - Code for the refilling
+                    isGoodFuelLevel = true;
                 }
-                // Large ferry
-                else if (vehicleType == "bus" || vehicleType == "truck")
+                else
                 {
-                    Onboarding(vehicle, largeFerry, clerk);
+                    canOnboard = true;
+                }
+
+                if(isGoodFuelLevel && canOnboard)
+                {
+                    // Door manipulation
+                    clerk.CargoInspection(vehicle);
+
+                    // Small ferry
+                    if (vehicleType == "car" || vehicleType == "van")
+                    {
+                        Onboarding(vehicle, smallFerry, clerk);
+                    }
+                    // Large ferry
+                    else if (vehicleType == "bus" || vehicleType == "truck")
+                    {
+                        Onboarding(vehicle, largeFerry, clerk);
+                    }
                 }
 
                 Console.WriteLine("\n");
