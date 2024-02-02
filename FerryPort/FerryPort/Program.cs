@@ -47,6 +47,7 @@ namespace FerryPort
                     Console.WriteLine("Tank refueled");
                     Console.WriteLine($"Fuel level is on {vehicle.GetFuelInPercentage()}%");
                     isGoodFuelLevel = true;
+                    canOnboard = true;
                 }
                 else
                 {
