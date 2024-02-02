@@ -15,18 +15,13 @@ namespace FerryPort
             Ferry smallFerry = new Ferry();
             Ferry largeFerry = new Ferry();
 
-            Vehicle car = new Car();
-            Vehicle bus = new Bus();
-            Vehicle van = new Van();
-            Vehicle truck = new Truck();
-
             TerminalClerk clerk = new TerminalClerk();
 
             string loop = "gameOn";
             while (loop != "e")
             {               
                 // Store the value of the random vehicle from the list to the vehicle object
-                vehicle = RandomVehicle(vehicles, car, bus, van, truck);
+                vehicle = RandomVehicle(vehicles);
                 vehicle.RandomizeFuelLevel();
 
                 int fuelLevel = vehicle.GetFuelInPercentage();
@@ -89,9 +84,14 @@ namespace FerryPort
 
         }
 
-        private static Vehicle RandomVehicle(List<Vehicle> vehicles, Vehicle car, Vehicle bus, Vehicle van, Vehicle truck)
+        private static Vehicle RandomVehicle(List<Vehicle> vehicles)
         {
             vehicles.Clear();
+
+            Vehicle car = new Car();
+            Vehicle bus = new Bus();
+            Vehicle van = new Van();
+            Vehicle truck = new Truck();
 
             vehicles.Add(car);
             vehicles.Add(bus);
