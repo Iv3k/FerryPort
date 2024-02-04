@@ -2,13 +2,27 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace FerryPort
 {
     class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
+            var gui = new FerryPort();
+
+            var window = new Window
+            {
+                Title = "Ferry Port",
+                Content = gui,
+                Width = 800,
+                Height = 600
+            };
+
+            window.ShowDialog();
+
             List<Vehicle> vehicles = new List<Vehicle>();
 
             Vehicle vehicle = new Vehicle();
