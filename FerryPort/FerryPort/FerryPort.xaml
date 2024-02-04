@@ -70,22 +70,22 @@
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Grid.ColumnSpan="3" Margin="-1,-42,-2,0" Height="45"/>
                     <!-- Small Ferry counter -->
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock Text="1" Margin="0,0,0,5" HorizontalAlignment="Center" FontSize="20"/>
+                        <TextBlock x:Name="smallFerryCapacity" Text="0" Margin="0,0,0,5" HorizontalAlignment="Center" FontSize="20"/>
                         <Line X1="0" Y1="0" X2="200" Y2="0" Stroke="Black" StrokeThickness="3" Width="68"/>
                         <TextBlock Text="8" Margin="0,5,0,0" HorizontalAlignment="Center" FontSize="20"/>
                     </StackPanel>
 
                     <!-- Large Ferry counter -->
                     <StackPanel Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.85,0.448">
-                        <TextBlock Text="1" Margin="0,0,0,5" HorizontalAlignment="Center" FontSize="20"/>
+                        <TextBlock x:Name="largeFerryCapacity" Text="0" Margin="0,0,0,5" HorizontalAlignment="Center" FontSize="20"/>
                         <Line X1="0" Y1="0" X2="200" Y2="0" Stroke="Black" StrokeThickness="3" Width="68"/>
-                        <TextBlock Text="8" Margin="0,5,0,0" HorizontalAlignment="Center" FontSize="20"/>
+                        <TextBlock Text="6" Margin="0,5,0,0" HorizontalAlignment="Center" FontSize="20"/>
                     </StackPanel>
 
                     <!-- Small Ferry income -->
-                    <Label Content="$" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black" FontFamily="Segoe UI" Margin="-1,158,8.6,-37" Grid.Column="0" Height="35" Width="98"/>
+                    <Label x:Name="smallFerryIncome" Content="$ 0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black" FontFamily="Segoe UI" Margin="-1,158,8.6,-37" Grid.Column="0" Height="35" Width="98"/>
                     <!-- Large Ferry income -->
-                    <Label Content="$" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black" FontFamily="Segoe UI" Margin="1.4,158,-2,-37" Grid.Column="1" Height="35" Width="98" Grid.ColumnSpan="2"/>
+                    <Label x:Name="largeFerryIncome" Content="$ 0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black" FontFamily="Segoe UI" Margin="1.4,158,-2,-37" Grid.Column="1" Height="35" Width="98" Grid.ColumnSpan="2"/>
 
                 </Grid>
             </Border>
@@ -99,9 +99,9 @@
                 <Label Content="Door status:"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" Height="80" Margin="220,25,0,0" VerticalAlignment="Top" Width="95" RenderTransformOrigin="0.298,0.248">
-                <Label x:Name="vehicleType"/>
-                <Label x:Name="fuelLevel"/>
-                <Label x:Name="doorStatus"/>
+                <Label x:Name="vehicleType" Content="/"/>
+                <Label x:Name="fuelLevel" Content="/" />
+                <Label x:Name="doorStatus" Content="N/A" />
             </StackPanel>
             <!-- Refuel button -->
             <Button x:Name="RefuelBtn" Click="OnClickRefuel" HorizontalAlignment="Left" Margin="315,30,0,0" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.76" Height="30">
@@ -227,7 +227,7 @@
                 </Button.Content>
             </Button>
             <Label Content="$" HorizontalAlignment="Left" Margin="40,100,0,0" VerticalAlignment="Top" Height="25" Width="20"/>
-            <Label Content="2.4" HorizontalAlignment="Left" Margin="60,100,0,0" VerticalAlignment="Top" Height="25" Width="48"/>
+            <Label x:Name="clerkIncome" Content="0" HorizontalAlignment="Left" Margin="60,100,0,0" VerticalAlignment="Top" Height="25" Width="48"/>
         </Grid>
     </Grid>
 </UserControl>

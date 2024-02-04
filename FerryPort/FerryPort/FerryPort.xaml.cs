@@ -32,6 +32,7 @@ namespace FerryPort
         bool canOnboard = false;
         int vehicleFuelLevel = 0;
         int input = 0;
+        string typeOfTheVehicle = " ";
 
         string vehicleStatus = " ";
         const string carPath = "Images/car.png";
@@ -43,6 +44,7 @@ namespace FerryPort
         {
             InitializeComponent();
             VehiclesStatusImagesInit();
+            typeOfTheVehicle = vehicle.GetVehicleType();
 
             vehicle = RandomVehicle(vehicles);
             vehicle.RandomizeFuelLevel();         
@@ -52,10 +54,16 @@ namespace FerryPort
         {
             input++;
 
-            if(input == 1)
+            if (smallFerry.GetCapacity() == 0)
+                smallFerry = new SmallFerry();
+
+            if (largeFerry.GetCapacity() == 0)
+                largeFerry = new LargeFerry();
+
+            if (input == 1)
             {
                 vehicleStatus = "arrival";
-                vehicleType.Content = vehicle.GetVehicleType();
+                vehicleType.Content = typeOfTheVehicle;
 
                 DisplayFuel();
                 ClerkCheckFuel();
@@ -76,6 +84,18 @@ namespace FerryPort
             else if (input == 4 && isGoodFuelLevel)
             {
                 vehicleStatus = "ferry";
+                // Small ferry
+                if (typeOfTheVehicle == "car" || typeOfTheVehicle == "van")
+                {
+                    Onboarding(vehicle, smallFerry, clerk);
+                    smallFerryIncome.Content = smallFerry.ShowRevenue();
+                }
+                // Large ferry
+                else if (typeOfTheVehicle == "bus" || typeOfTheVehicle == "truck")
+                {
+                    Onboarding(vehicle, largeFerry, clerk);
+                    largeFerryIncome.Content = largeFerry.ShowRevenue();
+                }
                 SetVehicleStatus();
             }
             else if(input > 4 && isGoodFuelLevel)
@@ -84,7 +104,11 @@ namespace FerryPort
                 doorStatus.Content = "N/A";
                 vehicle = RandomVehicle(vehicles);
                 vehicle.RandomizeFuelLevel();
+                typeOfTheVehicle = vehicle.GetVehicleType();
             }
+
+            clerkIncome.Content = clerk.ShowIncome();
+
         }
 
         private bool CheckIfCargo()
@@ -209,9 +233,7 @@ namespace FerryPort
                 ClerkFee(ferry, clerk);
 
                 ferry.DecreaseCapacity();
-
-                Console.WriteLine($"Ferry revenue is {ferry.ShowRevenue()}");
-            }
+            }    
         }
 
         private static Vehicle RandomVehicle(List<Vehicle> vehicles)

@@ -9,10 +9,10 @@ namespace FerryPort
         const int _fillingLimit = 10;
         const float _percentageOfNewFuel = 0.3f;
 
-        public void ShowIncome()
+        public float ShowIncome()
         {
-            // Representing value to maximum two digits
-            Console.WriteLine($"Clerk income {_income.ToString("F2")}");
+            // Max two decimals
+            return float.Parse(_income.ToString("F2"));
         }
 
         public float GetFeeAmount()

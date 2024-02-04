@@ -46,7 +46,6 @@ namespace FerryPort
         public void DecreaseCapacity()
         {
             _capacity--;
-            Console.WriteLine($"Capacity {_capacity}");
         }
 
         public void DecreaseRevenue(float amount)
@@ -54,9 +53,9 @@ namespace FerryPort
             _revenue -= amount;
         }
 
-        public float ShowRevenue()
+        public string ShowRevenue()
         {
-            return _revenue;
+            return $"$ {_revenue}";
         }
     }
 }
