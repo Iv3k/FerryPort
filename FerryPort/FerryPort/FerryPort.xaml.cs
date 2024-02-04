@@ -59,6 +59,7 @@ namespace FerryPort
 
                 DisplayFuel();
                 ClerkCheckFuel();
+                CheckIfCargo();
 
                 SetVehicleStatus();
             }
@@ -67,7 +68,7 @@ namespace FerryPort
                 vehicleStatus = "gas";
                 SetVehicleStatus();
             }
-            else if (input == 3 && isGoodFuelLevel)
+            else if (input == 3 && isGoodFuelLevel && CheckIfCargo())
             {
                 vehicleStatus = "inspection";
                 SetVehicleStatus();
@@ -80,9 +81,17 @@ namespace FerryPort
             else if(input > 4 && isGoodFuelLevel)
             {
                 input = 0;
+                doorStatus.Content = "N/A";
                 vehicle = RandomVehicle(vehicles);
                 vehicle.RandomizeFuelLevel();
             }
+        }
+
+        private bool CheckIfCargo()
+        {
+            if (vehicle is Cargo)
+                return true;
+            return false;          
         }
 
         private void ClerkCheckFuel()
@@ -107,6 +116,20 @@ namespace FerryPort
                 DisplayFuel();
                 isGoodFuelLevel = true;
             }
+        }
+
+        private void OnClickInspect(object sender, RoutedEventArgs e)
+        {
+            if(vehicleStatus == "inspection")
+            {
+                ShowDoorStatus();
+            }
+        }
+
+        private void ShowDoorStatus()
+        {
+            if (CheckIfCargo())
+                doorStatus.Content = clerk.CargoInspection(vehicle);
         }
 
         private void DisplayFuel()

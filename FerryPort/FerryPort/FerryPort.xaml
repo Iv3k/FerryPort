@@ -96,12 +96,12 @@
             <StackPanel HorizontalAlignment="Left" Height="80" Margin="140,25,0,0" VerticalAlignment="Top" Width="80">
                 <Label Content="Vehicle Type:"/>
                 <Label Content="Fuel Level:"/>
-                <Label Content="Ticket Price:"/>
+                <Label Content="Door status:"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" Height="80" Margin="220,25,0,0" VerticalAlignment="Top" Width="95" RenderTransformOrigin="0.298,0.248">
                 <Label x:Name="vehicleType"/>
                 <Label x:Name="fuelLevel"/>
-                <Label x:Name="ticketPrice"/>
+                <Label x:Name="doorStatus"/>
             </StackPanel>
             <!-- Refuel button -->
             <Button x:Name="RefuelBtn" Click="OnClickRefuel" HorizontalAlignment="Left" Margin="315,30,0,0" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.76" Height="30">
@@ -148,7 +148,7 @@
                 </Button.Content>
             </Button>
             <!-- Inspect button -->
-            <Button x:Name="InspectBtn" HorizontalAlignment="Left" Margin="315,75,0,0" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.76" Height="30">
+            <Button x:Name="InspectBtn" Click="OnClickInspect" HorizontalAlignment="Left" Margin="315,75,0,0" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.76" Height="30">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background" Value="#FEA82F"/>

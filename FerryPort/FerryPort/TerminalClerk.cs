@@ -6,7 +6,7 @@ namespace FerryPort
     {
         float _income = 0;
         const float _feeAmount = 0.10f;
-        const int _fillingLimit = 80;
+        const int _fillingLimit = 10;
         const float _percentageOfNewFuel = 0.3f;
 
         public void ShowIncome()
@@ -42,21 +42,18 @@ namespace FerryPort
             return fuelToAdd;
         }
 
-        public void CargoInspection(Vehicle vehicle)
+        public string CargoInspection(Vehicle vehicle)
         {
             // If given vehicle is cargo type the code will execute
             if(vehicle is Van van)
             {
-                van.OpenCloseDoor();
+                return van.OpenCloseDoor();
             }
             else if(vehicle is Truck truck)
             {
-                truck.OpenCloseDoor();
+                return truck.OpenCloseDoor();
             }
-            else
-            {
-                Console.WriteLine("Inspection is not required");
-            }
+            return "N/A";
         }
 
     }

@@ -6,12 +6,12 @@ namespace FerryPort
     {
         protected bool _isDoorClosed = true;
 
-        public void OpenCloseDoor()
+        public string OpenCloseDoor()
         {
             _isDoorClosed = !_isDoorClosed;
-            string doorInfo = _isDoorClosed ? "Door is closed" : "Door is open";
+            string doorInfo = _isDoorClosed ? "Closed" : "Open";
 
-            Console.WriteLine(doorInfo);
+            return doorInfo;
         }
     }
 }
