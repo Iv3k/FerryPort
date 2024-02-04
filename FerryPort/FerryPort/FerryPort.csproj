@@ -74,9 +74,15 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Images\gas-pump.png" />
-    <Content Include="Images\search.png" />
-    <Content Include="Images\steward.png" />
+    <Content Include="Images\gas-pump.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\search.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\steward.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -86,7 +86,7 @@
         </StackPanel>
         <!-- Clerk HUD table-->
         <Grid HorizontalAlignment="Left" Height="150" Margin="5,320,-1,0" VerticalAlignment="Top" Width="740" RenderTransformOrigin="0.504,0.302">
-            <Image Source="FerryPort/FerryPort/Images/steward.png" HorizontalAlignment="Left" Height="85" Margin="30,15,0,0" VerticalAlignment="Top" Width="85"/>
+            <Image Source="Images/steward.png" HorizontalAlignment="Left" Height="85" Margin="30,15,0,0" VerticalAlignment="Top" Width="85"/>
             <StackPanel HorizontalAlignment="Left" Height="80" Margin="140,25,0,0" VerticalAlignment="Top" Width="80">
                 <Label Content="Vehicle Type:"/>
                 <Label Content="Fuel Level:"/>
@@ -136,7 +136,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Image Source="FerryPort/FerryPort/Images/gas-pump.png" Height="20" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="-40,0,39,0.6"/>
+                        <Image Source="Images/gas-pump.png" Height="20" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="-40,0,39,0.6"/>
                         <TextBlock Text="REFUEL" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Margin="15,5,-35,5" Width="60"/>
                     </Grid>
                 </Button.Content>
@@ -180,7 +180,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Image Source="FerryPort/FerryPort/Images/search.png" Height="20" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="-40,0,39,0.6"/>
+                        <Image Source="Images/search.png" Height="20" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="-40,0,39,0.6"/>
                         <TextBlock Text="INSPECT" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Margin="15,5,-35,5" Width="60"/>
                     </Grid>
                 </Button.Content>
