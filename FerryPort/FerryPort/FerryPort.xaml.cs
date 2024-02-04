@@ -26,11 +26,11 @@ namespace FerryPort
         Vehicle vehicle = new Vehicle();
         Ferry smallFerry = new Ferry();
         Ferry largeFerry = new Ferry();
-
         TerminalClerk clerk = new TerminalClerk();
 
         bool isGoodFuelLevel = true;
         bool canOnboard = false;
+        int vehicleFuelLevel = 0;
         int input = 0;
 
         string vehicleStatus = " ";
@@ -45,45 +45,77 @@ namespace FerryPort
             VehiclesStatusImagesInit();
 
             vehicle = RandomVehicle(vehicles);
-            vehicle.RandomizeFuelLevel();
-
-            vehicleType.Content = vehicle.GetVehicleType();
-            string fuelLevelValue = vehicle.GetFuelInPercentage().ToString();
-            fuelLevelValue += " %";
-            fuelLevel.Content = fuelLevelValue;
-
-            ticketPrice.Content = vehicle.GetVehicleType();
-
+            vehicle.RandomizeFuelLevel();         
         }
 
         private void OnProceedClick(object sender, RoutedEventArgs e)
         {
             input++;
 
-            if(input==1)
+            if(input == 1)
             {
                 vehicleStatus = "arrival";
+                vehicleType.Content = vehicle.GetVehicleType();
+
+                DisplayFuel();
+                ClerkCheckFuel();
+
                 SetVehicleStatus();
             }
-            else if(input==2)
+            else if(input == 2 && !isGoodFuelLevel)
             {
                 vehicleStatus = "gas";
                 SetVehicleStatus();
             }
-            else if (input == 3)
+            else if (input == 3 && isGoodFuelLevel)
             {
                 vehicleStatus = "inspection";
                 SetVehicleStatus();
             }
-            else if (input == 4)
+            else if (input == 4 && isGoodFuelLevel)
             {
                 vehicleStatus = "ferry";
                 SetVehicleStatus();
             }
-            else if(input > 4)
+            else if(input > 4 && isGoodFuelLevel)
             {
                 input = 0;
+                vehicle = RandomVehicle(vehicles);
+                vehicle.RandomizeFuelLevel();
             }
+        }
+
+        private void ClerkCheckFuel()
+        {
+            if (clerk.NeedsRefuel(vehicleFuelLevel))
+            {
+                isGoodFuelLevel = false;
+            }
+            else
+            {
+                input = 2;
+                canOnboard = true;
+            }
+        }
+
+        private void OnClickRefuel(object sender, RoutedEventArgs e)
+        {
+            if(vehicleStatus == "gas")
+            {
+                vehicle.RefuelTank(clerk.NewAmountOfFuel(vehicle));
+
+                DisplayFuel();
+                isGoodFuelLevel = true;
+            }
+        }
+
+        private void DisplayFuel()
+        {
+            vehicleFuelLevel = vehicle.GetFuelInPercentage();
+
+            string fuelLevelValue = vehicleFuelLevel.ToString();
+            fuelLevelValue += " %";
+            fuelLevel.Content = fuelLevelValue;
         }
 
         public void SetVehicleStatus()
@@ -117,6 +149,7 @@ namespace FerryPort
             else
                 return truckPath;
         }
+
         private void VehiclesStatusImagesInit()
         {
             vehicleStatusImages.Add(vehicleArrivalImg);
@@ -124,11 +157,12 @@ namespace FerryPort
             vehicleStatusImages.Add(vehicleInspectionImg);
             vehicleStatusImages.Add(vehicleFerryImg);
         }
+
         private void SetImageSource(Image imagePlace)
         {
-            // Recognizing vehicle type and setting image based on that
+            // Recognizing vehicle type and setting image path based on that
             string vehicleTypePath = SetVehicleTypeImage(vehicle.GetVehicleType());
-
+            // Ensuring that each vehicle phase always has only one vehicle
             foreach (var img in vehicleStatusImages)
             {
                 if (img == imagePlace)
