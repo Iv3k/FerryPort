@@ -21,6 +21,7 @@ namespace FerryPort
     public partial class FerryPort : UserControl
     {
         List<Vehicle> vehicles = new List<Vehicle>();
+        List<Image> vehicleStatusImages = new List<Image>();
 
         Vehicle vehicle = new Vehicle();
         Ferry smallFerry = new Ferry();
@@ -30,6 +31,7 @@ namespace FerryPort
 
         bool isGoodFuelLevel = true;
         bool canOnboard = false;
+        int input = 0;
 
         string vehicleStatus = " ";
         const string carPath = "Images/car.png";
@@ -40,6 +42,7 @@ namespace FerryPort
         public FerryPort()
         {
             InitializeComponent();
+            VehiclesStatusImagesInit();
 
             vehicle = RandomVehicle(vehicles);
             vehicle.RandomizeFuelLevel();
@@ -51,30 +54,55 @@ namespace FerryPort
 
             ticketPrice.Content = vehicle.GetVehicleType();
 
-            vehicleStatus = "ferry";
-            SetVehicleStatus();
+        }
+
+        private void OnProceedClick(object sender, RoutedEventArgs e)
+        {
+            input++;
+
+            if(input==1)
+            {
+                vehicleStatus = "arrival";
+                SetVehicleStatus();
+            }
+            else if(input==2)
+            {
+                vehicleStatus = "gas";
+                SetVehicleStatus();
+            }
+            else if (input == 3)
+            {
+                vehicleStatus = "inspection";
+                SetVehicleStatus();
+            }
+            else if (input == 4)
+            {
+                vehicleStatus = "ferry";
+                SetVehicleStatus();
+            }
+            else if(input > 4)
+            {
+                input = 0;
+            }
         }
 
         public void SetVehicleStatus()
-        {
-            // Recognizing vehicle type and setting image based on that
-            string vehicleTypePath = SetVehicleTypeImage(vehicle.GetVehicleType());
-            
+        {   
             if (vehicleStatus == "arrival")
             {
-                SetImageSource(vehicleTypePath, vehicleArrivalImg);
+                SetImageSource(vehicleArrivalImg);
             }
             else if(vehicleStatus == "gas")
             {
-                SetImageSource(vehicleTypePath, vehicleGasStationImg);
+                SetImageSource(vehicleGasStationImg);
             }
             else if (vehicleStatus == "inspection")
             {
-                SetImageSource(vehicleTypePath, vehicleInspectionImg);
+                SetImageSource(vehicleInspectionImg);
             }
             else if (vehicleStatus == "ferry")
             {
-                SetImageSource(vehicleTypePath, vehicleFerryImg);
+                SetImageSource(vehicleFerryImg);
             }
         }
 
@@ -89,11 +117,29 @@ namespace FerryPort
             else
                 return truckPath;
         }
-
-        private void SetImageSource(string imagePath, Image imagePlace)
+        private void VehiclesStatusImagesInit()
         {
-            BitmapImage bitmapImage = new BitmapImage(new Uri(imagePath, UriKind.Relative));
-            imagePlace.Source = bitmapImage;
+            vehicleStatusImages.Add(vehicleArrivalImg);
+            vehicleStatusImages.Add(vehicleGasStationImg);
+            vehicleStatusImages.Add(vehicleInspectionImg);
+            vehicleStatusImages.Add(vehicleFerryImg);
+        }
+        private void SetImageSource(Image imagePlace)
+        {
+            // Recognizing vehicle type and setting image based on that
+            string vehicleTypePath = SetVehicleTypeImage(vehicle.GetVehicleType());
+
+            foreach (var img in vehicleStatusImages)
+            {
+                if (img == imagePlace)
+                {
+                    img.Source = new BitmapImage(new Uri(vehicleTypePath, UriKind.Relative));
+                }
+                else
+                {
+                    img.Source = null;
+                }
+            }
         }
 
         private static void Onboarding(Vehicle vehicle, Ferry ferry, TerminalClerk clerk)

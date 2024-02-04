@@ -192,7 +192,7 @@
                 </Button.Content>
             </Button>
             <!-- Proceed button -->
-            <Button Width="80" Height="80" Margin="570,25,90,45">
+            <Button Click="OnProceedClick" Width="80" Height="80" Margin="570,25,90,45">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background" Value="#2ecc71"/>
