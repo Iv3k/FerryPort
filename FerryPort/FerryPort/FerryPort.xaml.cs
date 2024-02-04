@@ -51,7 +51,7 @@ namespace FerryPort
 
             ticketPrice.Content = vehicle.GetVehicleType();
 
-            vehicleStatus = "gas";
+            vehicleStatus = "ferry";
             SetVehicleStatus();
         }
 
