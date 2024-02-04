@@ -17,8 +17,8 @@ namespace FerryPort
             {
                 Title = "Ferry Port",
                 Content = gui,
-                Width = 800,
-                Height = 600
+                Width = 750,
+                Height = 500
             };
 
             window.ShowDialog();
