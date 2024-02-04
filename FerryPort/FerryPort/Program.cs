@@ -35,7 +35,7 @@ namespace FerryPort
             bool canOnboard = false;
 
             string loop = "gameOn";
-            while (loop != "e")
+            /*while (loop != "e")
             {               
                 // Store the value of the random vehicle from the list to the vehicle object
                 vehicle = RandomVehicle(vehicles);
@@ -90,7 +90,7 @@ namespace FerryPort
                 clerk.ShowIncome();
                 loop = Console.ReadLine();
             }
-
+            */
         }
 
         private static void Onboarding(Vehicle vehicle, Ferry ferry, TerminalClerk clerk)
