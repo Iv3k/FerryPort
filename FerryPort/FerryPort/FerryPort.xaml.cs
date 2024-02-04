@@ -31,6 +31,12 @@ namespace FerryPort
         bool isGoodFuelLevel = true;
         bool canOnboard = false;
 
+        string vehicleStatus = " ";
+        const string carPath = "Images/car.png";
+        const string vanPath = "Images/delivery.png";
+        const string busPath = "Images/bus.png";
+        const string truckPath = "Images/truck.png";
+
         public FerryPort()
         {
             InitializeComponent();
@@ -44,6 +50,50 @@ namespace FerryPort
             fuelLevel.Content = fuelLevelValue;
 
             ticketPrice.Content = vehicle.GetVehicleType();
+
+            vehicleStatus = "gas";
+            SetVehicleStatus();
+        }
+
+        public void SetVehicleStatus()
+        {
+            // Recognizing vehicle type and setting image based on that
+            string vehicleTypePath = SetVehicleTypeImage(vehicle.GetVehicleType());
+            
+            if (vehicleStatus == "arrival")
+            {
+                SetImageSource(vehicleTypePath, vehicleArrivalImg);
+            }
+            else if(vehicleStatus == "gas")
+            {
+                SetImageSource(vehicleTypePath, vehicleGasStationImg);
+            }
+            else if (vehicleStatus == "inspection")
+            {
+                SetImageSource(vehicleTypePath, vehicleInspectionImg);
+            }
+            else if (vehicleStatus == "ferry")
+            {
+                SetImageSource(vehicleTypePath, vehicleFerryImg);
+            }
+        }
+
+        public string SetVehicleTypeImage(string type)
+        {
+            if (type == "car")
+                return carPath;
+            else if (type == "van")
+                return vanPath;
+            else if (type == "bus")
+                return busPath;
+            else
+                return truckPath;
+        }
+
+        private void SetImageSource(string imagePath, Image imagePlace)
+        {
+            BitmapImage bitmapImage = new BitmapImage(new Uri(imagePath, UriKind.Relative));
+            imagePlace.Source = bitmapImage;
         }
 
         private static void Onboarding(Vehicle vehicle, Ferry ferry, TerminalClerk clerk)

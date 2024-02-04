@@ -22,25 +22,26 @@
                         <ColumnDefinition Width="98*" />
                     </Grid.ColumnDefinitions>
 
+                    <!--> Arrival Column-->
                     <Border Grid.Column="0" BorderBrush="#B3B3B3" BorderThickness="0,0,3,0" Background="#FFC288" Grid.ColumnSpan="2" Margin="0,0,1.2,-0.4">
                         <TextBlock Text="Arrival" FontWeight="Bold" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                     </Border>
-                    <Image x:Name="vehicleArrivalImg" Grid.Column="0" Width="50" Height="50" Margin="23,66,24.6,127.2" />
-
+                    <Image x:Name="vehicleArrivalImg" Grid.Column="0" Width="50" Height="50" Margin="1" Stretch="Uniform"/>
+                    <!-- Gas Station Column -->
                     <Border Grid.Column="1" BorderBrush="#B3B3B3" BorderThickness="0,0,3,0" Background="#FFC288" Grid.ColumnSpan="3" Margin="1.4,0,1.4,-0.4">
                         <TextBlock Text="Gas Station" FontWeight="Bold" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                     </Border>
-                    <Image x:Name="vehicleGasStationImg" Grid.Column="1" Width="50" Height="50" Margin="23,66,24.6,127.2" />
-
+                    <Image x:Name="vehicleGasStationImg" Grid.Column="2" Width="50" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1" Stretch="Uniform"/>
+                    <!--> Inspection Column-->
                     <Border Grid.Column="3" BorderBrush="#B3B3B3" BorderThickness="0,0,3,0" Background="#FFC288" Grid.ColumnSpan="3" Margin="1.2,0,0,-0.4">
                         <TextBlock Text="Inspection" FontWeight="Bold" FontSize="17"  HorizontalAlignment="Center" VerticalAlignment="Top"/>
                     </Border>
-                    <Image x:Name="vehicleInspectionImg" Grid.Column="3" Width="50" Height="50" Margin="23,66,24.6,127.2" />
-
+                    <Image x:Name="vehicleInspectionImg" Width="50" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" RenderTransformOrigin="1.22,0.484" Margin="1" Grid.ColumnSpan="4" Stretch="Uniform"/>
+                    <!--> Ferry Column-->
                     <Border Grid.Column="6" Background="#FFC288" Margin="0.6,0,-0.4,-0.8" Grid.ColumnSpan="2">
                         <TextBlock Text="Ferry" FontWeight="Bold" FontSize="17"  HorizontalAlignment="Center" VerticalAlignment="Top"/>
                     </Border>
-                    <Image x:Name="vehicleFerryImg" Grid.Column="6" Width="50" Height="50" Margin="23,66,24.6,127.2" />
+                    <Image x:Name="vehicleFerryImg" Width="50" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="6" RenderTransformOrigin="1.22,0.484" Margin="1" Grid.ColumnSpan="6" Stretch="Uniform"/>
 
                     <Label Content="Vehicle Status" HorizontalAlignment="Center" VerticalAlignment="Top" Width="399"
                     FontSize="25" Foreground="#2C3E50" FontFamily="Segoe UI"
