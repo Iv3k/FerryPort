@@ -119,6 +119,7 @@ namespace FerryPort
             else
                 nextPhase = (Phases)(((int)nextPhase + 1) % totalPhases);
 
+            clerkIncome.Content = clerk.ShowIncome();
         }
 
         private void Onboarding()

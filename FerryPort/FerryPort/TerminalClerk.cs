@@ -6,7 +6,7 @@ namespace FerryPort
     {
         float _income = 0;
         const float _feeAmount = 0.10f;
-        const int _fillingLimit = 80;
+        const int _fillingLimit = 10;
         const float _percentageOfNewFuel = 0.3f;
 
         public float ShowIncome()
