@@ -6,10 +6,10 @@
              xmlns:local="clr-namespace:FerryPort"
              mc:Ignorable="d" 
              d:DesignHeight="450" Width="745">
-    <Grid Background="#F2F2F2">
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="321" Margin="-1,1,0,0" VerticalAlignment="Top" Width="743" Background="#E6E6E6">
+    <Grid Background="#F5F5F5">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="329" Margin="-1,1,0,0" VerticalAlignment="Top" Width="743" Background="#E6E6E6">
             <!-- Vehicle status table-->
-            <Border BorderBrush="#B3B3B3" BorderThickness="3" HorizontalAlignment="Left" Height="250" Margin="50,40,10,0" VerticalAlignment="Top" Width="400" Background="#F5F5F5">
+            <Border BorderBrush="#004080" BorderThickness="4" HorizontalAlignment="Left" Height="250" Margin="50,40,10,0" VerticalAlignment="Top" Width="400" Background="#F5F5F5">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="98*" />
@@ -23,23 +23,23 @@
                     </Grid.ColumnDefinitions>
 
                     <!--> Arrival Column-->
-                    <Border Grid.Column="0" BorderBrush="#B3B3B3" BorderThickness="0,0,3,0" Background="#FFC288" Grid.ColumnSpan="2" Margin="0,0,1.2,-0.4">
-                        <TextBlock Text="Arrival" FontWeight="Bold" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Border Grid.Column="0" BorderBrush="#004080" BorderThickness="0,0,3,0" Background="#ADD8E6" Grid.ColumnSpan="2" Margin="0,0,1.2,-0.4">
+                        <TextBlock Text="Arrival" Foreground="#2C3E50" FontWeight="Bold" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                     </Border>
                     <Image x:Name="vehicleArrivalImg" Grid.Column="0" Width="65" Height="65" Margin="1" Stretch="Uniform"/>
                     <!-- Gas Station Column -->
-                    <Border Grid.Column="1" BorderBrush="#B3B3B3" BorderThickness="0,0,3,0" Background="#FFC288" Grid.ColumnSpan="3" Margin="1.4,0,1.4,-0.4">
-                        <TextBlock Text="Gas Station" FontWeight="Bold" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Border Grid.Column="1" BorderBrush="#004080" BorderThickness="0,0,3,0" Background="#ADD8E6" Grid.ColumnSpan="3" Margin="1.4,0,1.4,-0.4">
+                        <TextBlock Text="Gas Station" Foreground="#2C3E50" FontWeight="Bold" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                     </Border>
                     <Image x:Name="vehicleGasStationImg" Grid.Column="2" Width="65" Height="65" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1" Stretch="Uniform"/>
                     <!--> Inspection Column-->
-                    <Border Grid.Column="3" BorderBrush="#B3B3B3" BorderThickness="0,0,3,0" Background="#FFC288" Grid.ColumnSpan="3" Margin="1.2,0,0,-0.4">
-                        <TextBlock Text="Inspection" FontWeight="Bold" FontSize="17"  HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Border Grid.Column="3" BorderBrush="#004080" BorderThickness="0,0,3,0" Background="#ADD8E6" Grid.ColumnSpan="3" Margin="1.2,0,0,-0.4">
+                        <TextBlock Text="Inspection" Foreground="#2C3E50" FontWeight="Bold" FontSize="17"  HorizontalAlignment="Center" VerticalAlignment="Top"/>
                     </Border>
                     <Image x:Name="vehicleInspectionImg" Width="65" Height="65" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" RenderTransformOrigin="1.22,0.484" Margin="1" Grid.ColumnSpan="4" Stretch="Uniform"/>
                     <!--> Ferry Column-->
-                    <Border Grid.Column="6" Background="#FFC288" Margin="0.6,0,-0.4,-0.8" Grid.ColumnSpan="2">
-                        <TextBlock Text="Ferry" FontWeight="Bold" FontSize="17"  HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Border Grid.Column="6" Background="#ADD8E6" Margin="0.6,0,-0.4,-0.8" Grid.ColumnSpan="2">
+                        <TextBlock Text="Ferry" Foreground="#2C3E50" FontWeight="Bold" FontSize="17"  HorizontalAlignment="Center" VerticalAlignment="Top"/>
                     </Border>
                     <Image x:Name="vehicleFerryImg" Width="65" Height="65" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="6" RenderTransformOrigin="1.22,0.484" Margin="1" Grid.ColumnSpan="6" Stretch="Uniform"/>
 
@@ -49,7 +49,7 @@
                 </Grid>
             </Border>
             <!-- Ferries table-->
-            <Border BorderBrush="#B3B3B3" BorderThickness="3" HorizontalAlignment="Left" Height="160" Margin="50,40,10,0" VerticalAlignment="Top" Width="200" Background="#F0F0F0">
+            <Border BorderBrush="#004080" BorderThickness="3" HorizontalAlignment="Left" Height="160" Margin="50,40,10,0" VerticalAlignment="Top" Width="200" Background="#F0F0F0">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="75*" />
@@ -57,12 +57,12 @@
                         <ColumnDefinition Width="75*" />
                     </Grid.ColumnDefinitions>
 
-                    <Border Grid.Column="0" BorderBrush="#B3B3B3" BorderThickness="0,0,3,0" Background="#FFC288" Grid.ColumnSpan="2" Margin="0,0,1.2,-0.4">
-                        <TextBlock Text="Small" FontWeight="Bold" FontSize="17"  HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Border Grid.Column="0" BorderBrush="#004080" BorderThickness="0,0,3,0" Background="#ADD8E6" Grid.ColumnSpan="2" Margin="0,0,1.2,-0.4">
+                        <TextBlock Text="Small" Foreground="#2C3E50" FontWeight="Bold" FontSize="17"  HorizontalAlignment="Center" VerticalAlignment="Top"/>
                     </Border>
 
-                    <Border Grid.Column="1" BorderBrush="#B3B3B3" BorderThickness="0" Background="#FFC288" Grid.ColumnSpan="3" Margin="1.4,0,1.4,-0.4">
-                        <TextBlock Text="Large" FontWeight="Bold" FontSize="17"  HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Border Grid.Column="1" BorderBrush="#004080" BorderThickness="0" Background="#ADD8E6" Grid.ColumnSpan="3" Margin="1.4,0,1.4,-0.4">
+                        <TextBlock Text="Large" Foreground="#2C3E50" FontWeight="Bold" FontSize="17"  HorizontalAlignment="Center" VerticalAlignment="Top"/>
                     </Border>
 
                     <Label Content="Ferries" HorizontalAlignment="Center" VerticalAlignment="Top" Width="200"
@@ -75,7 +75,7 @@
                                 <Style TargetType="ProgressBar">
                                     <Setter Property="Orientation" Value="Vertical"/>
                                     <Setter Property="Foreground" Value="#74E291"/>
-                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="Background" Value="#E0E0E0"/>
                                     <Setter Property="Width" Value="20"/>
                                     <Setter Property="Height" Value="100"/>
                                 </Style>
@@ -90,7 +90,7 @@
                                 <Style TargetType="ProgressBar">
                                     <Setter Property="Orientation" Value="Vertical"/>
                                     <Setter Property="Foreground" Value="#74E291"/>
-                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="Background" Value="#E0E0E0"/>
                                     <Setter Property="Width" Value="20"/>
                                     <Setter Property="Height" Value="100"/>
                                 </Style>
@@ -107,23 +107,23 @@
             </Border>
         </StackPanel>
         <!-- Clerk HUD table-->
-        <Grid HorizontalAlignment="Left" Height="150" Margin="5,320,0,-20.4" VerticalAlignment="Top" Width="740" RenderTransformOrigin="0.504,0.302">
-            <Image Source="Images/steward.png" HorizontalAlignment="Left" Height="85" Margin="30,15,0,0" VerticalAlignment="Top" Width="85"/>
+        <Grid HorizontalAlignment="Left" Background="#6A5ACD" Height="135" Margin="0,330,-0.2,-15.4" VerticalAlignment="Top" Width="745" RenderTransformOrigin="0.504,0.302">
+            <Image Source="Images/steward.png" HorizontalAlignment="Left" Height="85" Margin="30,10,0,0" VerticalAlignment="Top" Width="85"/>
             <StackPanel HorizontalAlignment="Left" Height="80" Margin="140,28,0,0" VerticalAlignment="Top" Width="100">
-                <Label Content="Vehicle Type:" FontSize="14" FontFamily="Arial" FontWeight="Bold"/>
-                <Label Content="Fuel Level:" FontSize="14" FontFamily="Arial" FontWeight="Bold"/>
-                <Label Content="Door Status:" FontSize="14" FontFamily="Arial" FontWeight="Bold"/>
+                <Label Content="Vehicle Type:" Foreground="#D3D3D3" FontSize="14" FontFamily="Arial" FontWeight="Bold"/>
+                <Label Content="Fuel Level:" Foreground="#D3D3D3" FontSize="14" FontFamily="Arial" FontWeight="Bold"/>
+                <Label Content="Door Status:" Foreground="#D3D3D3" FontSize="14" FontFamily="Arial" FontWeight="Bold"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" Height="77" Margin="220,28,0,0" VerticalAlignment="Top" Width="90">
-                <Label x:Name="vehicleType" Content="/" FontSize="14" HorizontalAlignment="Center" FontFamily="Arial" />
-                <Label x:Name="fuelLevel" Content="/" FontSize="14" HorizontalAlignment="Center" FontFamily="Arial" />
-                <Label x:Name="doorStatus" Content="N/A" FontSize="14" HorizontalAlignment="Center" FontFamily="Arial" />
+                <Label x:Name="vehicleType" Foreground="#D3D3D3" Content="/" FontSize="14" HorizontalAlignment="Center" FontFamily="Arial" />
+                <Label x:Name="fuelLevel" Foreground="#D3D3D3" Content="/" FontSize="14" HorizontalAlignment="Center" FontFamily="Arial" />
+                <Label x:Name="doorStatus" Foreground="#D3D3D3" Content="N/A" FontSize="14" HorizontalAlignment="Center" FontFamily="Arial" />
             </StackPanel>
             <!-- Refuel button -->
-            <Button x:Name="RefuelBtn" Click="OnClickRefuel" HorizontalAlignment="Left" Margin="315,25,0,0" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.76" Height="30">
+            <Button x:Name="RefuelBtn" Click="OnClickRefuel" HorizontalAlignment="Left" Margin="315,30,0,0" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.76" Height="30">
                 <Button.Style>
                     <Style TargetType="Button">
-                        <Setter Property="Background" Value="#3282B8"/>
+                        <Setter Property="Background" Value="#D3D3D3"/>
                         <Setter Property="Foreground" Value="White"/>
                         <Setter Property="BorderBrush" Value="#27ae60"/>
                         <Setter Property="BorderThickness" Value="1"/>
@@ -138,11 +138,11 @@
                                     </Border>
                                     <ControlTemplate.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#0F4C75"/>
+                                            <Setter Property="Background" Value="#C0C0C0 "/>
                                             <Setter Property="BorderBrush" Value="#2980b9"/>
                                         </Trigger>
                                         <Trigger Property="IsPressed" Value="True">
-                                            <Setter Property="Background" Value="#3282B8"/>
+                                            <Setter Property="Background" Value="#A9A9A9"/>
                                             <Setter Property="BorderBrush" Value="#16a085"/>
                                         </Trigger>
                                     </ControlTemplate.Triggers>
@@ -159,15 +159,15 @@
                         </Grid.ColumnDefinitions>
 
                         <Image Source="Images/gas-pump.png" Height="20" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="-40,0,39,0.6"/>
-                        <TextBlock Text="REFUEL" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Margin="15,5,-35,5" Width="60"/>
+                        <TextBlock Text="REFUEL" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Margin="15,5,-35,5" Width="60"/>
                     </Grid>
                 </Button.Content>
             </Button>
             <!-- Inspect button -->
-            <Button x:Name="InspectBtn" Click="OnClickInspect" HorizontalAlignment="Left" Margin="315,70,0,0" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.76" Height="30">
+            <Button x:Name="InspectBtn" Click="OnClickInspect" HorizontalAlignment="Left" Margin="315,75,0,0" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.76" Height="30">
                 <Button.Style>
                     <Style TargetType="Button">
-                        <Setter Property="Background" Value="#FEA82F"/>
+                        <Setter Property="Background" Value="#D3D3D3"/>
                         <Setter Property="Foreground" Value="White"/>
                         <Setter Property="BorderBrush" Value="#27ae60"/>
                         <Setter Property="BorderThickness" Value="1"/>
@@ -182,11 +182,11 @@
                                     </Border>
                                     <ControlTemplate.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#FF6701"/>
+                                            <Setter Property="Background" Value="#C0C0C0 "/>
                                             <Setter Property="BorderBrush" Value="#2980b9"/>
                                         </Trigger>
                                         <Trigger Property="IsPressed" Value="True">
-                                            <Setter Property="Background" Value="#FEA82F"/>
+                                            <Setter Property="Background" Value="#A9A9A9"/>
                                             <Setter Property="BorderBrush" Value="#16a085"/>
                                         </Trigger>
                                     </ControlTemplate.Triggers>
@@ -203,15 +203,15 @@
                         </Grid.ColumnDefinitions>
 
                         <Image Source="Images/search.png" Height="20" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="-40,0,39,0.6"/>
-                        <TextBlock Text="INSPECT" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Margin="15,5,-35,5" Width="60"/>
+                        <TextBlock Text="INSPECT" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Margin="15,5,-35,5" Width="60"/>
                     </Grid>
                 </Button.Content>
             </Button>
             <!-- Proceed button -->
-            <Button Click="OnProceedClick" Width="80" Height="80" Margin="570,25,90,45">
+            <Button Click="OnProceedClick" Width="80" Height="80" Margin="585,25,80,25">
                 <Button.Style>
                     <Style TargetType="Button">
-                        <Setter Property="Background" Value="#2ecc71"/>
+                        <Setter Property="Background" Value="#2ECC71 "/>
                         <Setter Property="Foreground" Value="White"/>
                         <Setter Property="BorderBrush" Value="#27ae60"/>
                         <Setter Property="BorderThickness" Value="2"/>
@@ -225,11 +225,11 @@
                                     </Border>
                                     <ControlTemplate.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter TargetName="ButtonBorder" Property="Background" Value="#218c74"/>
+                                            <Setter TargetName="ButtonBorder" Property="Background" Value="#27AE60 "/>
                                             <Setter TargetName="ButtonBorder" Property="BorderBrush" Value="#1b614e"/>
                                         </Trigger>
                                         <Trigger Property="IsPressed" Value="True">
-                                            <Setter TargetName="ButtonBorder" Property="Background" Value="#1a5642"/>
+                                            <Setter TargetName="ButtonBorder" Property="Background" Value="#218F49 "/>
                                             <Setter TargetName="ButtonBorder" Property="BorderBrush" Value="#154534"/>
                                         </Trigger>
                                     </ControlTemplate.Triggers>
@@ -239,11 +239,12 @@
                     </Style>
                 </Button.Style>
                 <Button.Content>
-                    <TextBlock Text="Proceed"/>
+                    <Image Source="Images/next.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="35" Width="35"> </Image>
                 </Button.Content>
             </Button>
-            <Label Content="$" FontSize="17" FontWeight="Bold" HorizontalAlignment="Left" Margin="40,98,0,0" VerticalAlignment="Top" Height="30" Width="20"/>
-            <Label x:Name="clerkIncome" FontSize="17" Content="0" HorizontalAlignment="Left" Margin="60,98,0,0" VerticalAlignment="Top" Height="32" Width="45"/>
+            <!--<Label Content="$" FontSize="17" Foreground="#D3D3D3" FontWeight="Bold" HorizontalAlignment="Left" Margin="40,98,0,0" VerticalAlignment="Top" Height="30" Width="20"/>-->
+            <Label x:Name="clerkIncome" Foreground="#D3D3D3" FontSize="17" Content="0" HorizontalAlignment="Left" Margin="70,98,0,0" VerticalAlignment="Top" Height="32" Width="35" RenderTransformOrigin="0.56,0.069"/>
+            <Image Source="Images/money-bag.png" HorizontalAlignment="Left" Height="30" Margin="40,100,0,0" VerticalAlignment="Top" Width="25"/>
         </Grid>
     </Grid>
 </UserControl>
