@@ -47,17 +47,19 @@ namespace FerryPort
             typeOfTheVehicle = vehicle.GetVehicleType();
 
             vehicle = RandomVehicle(vehicles);
-            vehicle.RandomizeFuelLevel();         
+            vehicle.RandomizeFuelLevel();
+
+           // smallFerryCapacity.Value = 
         }
 
         private void OnProceedClick(object sender, RoutedEventArgs e)
         {
             input++;
 
-            if (smallFerry.GetCapacity() == 0)
+            if (smallFerry.GetCurrentCapacity() == 0)
                 smallFerry = new SmallFerry();
 
-            if (largeFerry.GetCapacity() == 0)
+            if (largeFerry.GetCurrentCapacity() == 0)
                 largeFerry = new LargeFerry();
 
             if (input == 1)
@@ -88,13 +90,13 @@ namespace FerryPort
                 if (typeOfTheVehicle == "car" || typeOfTheVehicle == "van")
                 {
                     Onboarding(vehicle, smallFerry, clerk);
-                    smallFerryIncome.Content = smallFerry.ShowRevenue();
+                    UpdateFerryHUD(smallFerry, smallFerryIncome, smallFerryCapacity);
                 }
                 // Large ferry
                 else if (typeOfTheVehicle == "bus" || typeOfTheVehicle == "truck")
                 {
                     Onboarding(vehicle, largeFerry, clerk);
-                    largeFerryIncome.Content = largeFerry.ShowRevenue();
+                    UpdateFerryHUD(largeFerry, largeFerryIncome, largeFerryCapacity);
                 }
                 SetVehicleStatus();
             }
@@ -109,6 +111,13 @@ namespace FerryPort
 
             clerkIncome.Content = clerk.ShowIncome();
 
+        }
+
+        private void UpdateFerryHUD(Ferry ferry, Label label, ProgressBar progressBar)
+        {
+            label.Content = ferry.ShowRevenue();
+            progressBar.Maximum = ferry.GetMaxCapacity();
+            progressBar.Value = ferry.GetMaxCapacity() - ferry.GetCurrentCapacity();
         }
 
         private bool CheckIfCargo()

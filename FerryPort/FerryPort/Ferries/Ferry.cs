@@ -4,13 +4,19 @@ namespace FerryPort
 {
     class Ferry
     {
-        protected int _capacity;
+        protected int _maxCapacity;
+        protected int _currentCapacity;
         protected float _transportationPrice;
         protected float _revenue = 0;
 
-        public int GetCapacity()
+        public int GetMaxCapacity()
         {
-            return _capacity;
+            return _maxCapacity;
+        }
+
+        public int GetCurrentCapacity()
+        {
+            return _currentCapacity;
         }
 
         public virtual void DetermineTicketPrice(Vehicle vehicle)
@@ -32,7 +38,7 @@ namespace FerryPort
 
         public bool CanBoardVehicle()
         {
-            if(_capacity > 0)
+            if(_maxCapacity > 0)
             {
                 Console.WriteLine("Onboard...");
                 return true;
@@ -45,7 +51,7 @@ namespace FerryPort
 
         public void DecreaseCapacity()
         {
-            _capacity--;
+            _currentCapacity--;
         }
 
         public void DecreaseRevenue(float amount)

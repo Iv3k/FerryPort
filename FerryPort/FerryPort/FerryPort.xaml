@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FerryPort"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" Width="745">
     <Grid Background="#F2F2F2">
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="321" Margin="-1,1,0,0" VerticalAlignment="Top" Width="743" Background="#E6E6E6">
             <!-- Vehicle status table-->
@@ -52,9 +52,9 @@
             <Border BorderBrush="#B3B3B3" BorderThickness="3" HorizontalAlignment="Left" Height="160" Margin="50,40,10,0" VerticalAlignment="Top" Width="200" Background="#F0F0F0">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="98*" />
+                        <ColumnDefinition Width="75*" />
                         <ColumnDefinition Width="2" />
-                        <ColumnDefinition Width="98*" />
+                        <ColumnDefinition Width="75*" />
                     </Grid.ColumnDefinitions>
 
                     <Border Grid.Column="0" BorderBrush="#B3B3B3" BorderThickness="0,0,3,0" Background="#FFC288" Grid.ColumnSpan="2" Margin="0,0,1.2,-0.4">
@@ -69,17 +69,33 @@
                     FontSize="25" Foreground="#2C3E50" FontFamily="Segoe UI"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Grid.ColumnSpan="3" Margin="-1,-42,-2,0" Height="45"/>
                     <!-- Small Ferry counter -->
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock x:Name="smallFerryCapacity" Text="0" Margin="0,0,0,5" HorizontalAlignment="Center" FontSize="20"/>
-                        <Line X1="0" Y1="0" X2="200" Y2="0" Stroke="Black" StrokeThickness="3" Width="68"/>
-                        <TextBlock Text="8" Margin="0,5,0,0" HorizontalAlignment="Center" FontSize="20"/>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Height="120" Margin="38,31,38,2.6">
+                        <ProgressBar x:Name="smallFerryCapacity" Height="120" Width="20">
+                            <ProgressBar.Style>
+                                <Style TargetType="ProgressBar">
+                                    <Setter Property="Orientation" Value="Vertical"/>
+                                    <Setter Property="Foreground" Value="#74E291"/>
+                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="Width" Value="20"/>
+                                    <Setter Property="Height" Value="100"/>
+                                </Style>
+                            </ProgressBar.Style>
+                        </ProgressBar>
                     </StackPanel>
 
                     <!-- Large Ferry counter -->
-                    <StackPanel Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.85,0.448">
-                        <TextBlock x:Name="largeFerryCapacity" Text="0" Margin="0,0,0,5" HorizontalAlignment="Center" FontSize="20"/>
-                        <Line X1="0" Y1="0" X2="200" Y2="0" Stroke="Black" StrokeThickness="3" Width="68"/>
-                        <TextBlock Text="6" Margin="0,5,0,0" HorizontalAlignment="Center" FontSize="20"/>
+                    <StackPanel Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0">
+                        <ProgressBar x:Name="largeFerryCapacity" Height="120" Width="20">
+                            <ProgressBar.Style>
+                                <Style TargetType="ProgressBar">
+                                    <Setter Property="Orientation" Value="Vertical"/>
+                                    <Setter Property="Foreground" Value="#74E291"/>
+                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="Width" Value="20"/>
+                                    <Setter Property="Height" Value="100"/>
+                                </Style>
+                            </ProgressBar.Style>
+                        </ProgressBar>                    
                     </StackPanel>
 
                     <!-- Small Ferry income -->
@@ -91,7 +107,7 @@
             </Border>
         </StackPanel>
         <!-- Clerk HUD table-->
-        <Grid HorizontalAlignment="Left" Height="150" Margin="5,320,-1,0" VerticalAlignment="Top" Width="740" RenderTransformOrigin="0.504,0.302">
+        <Grid HorizontalAlignment="Left" Height="150" Margin="5,320,0,-20.4" VerticalAlignment="Top" Width="740" RenderTransformOrigin="0.504,0.302">
             <Image Source="Images/steward.png" HorizontalAlignment="Left" Height="85" Margin="30,15,0,0" VerticalAlignment="Top" Width="85"/>
             <StackPanel HorizontalAlignment="Left" Height="80" Margin="140,25,0,0" VerticalAlignment="Top" Width="80">
                 <Label Content="Vehicle Type:"/>
