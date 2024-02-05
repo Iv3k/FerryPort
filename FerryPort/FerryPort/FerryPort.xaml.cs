@@ -15,26 +15,33 @@ using System.Windows.Shapes;
 
 namespace FerryPort
 {
-    /// <summary>
-    /// Interaction logic for FerryPort.xaml
-    /// </summary>
+    public enum Phases
+    {
+        arrival,
+        gas,
+        inspection,
+        ferry
+    }
     public partial class FerryPort : UserControl
     {
+        #region("Lists")
         List<Vehicle> vehicles = new List<Vehicle>();
         List<Image> vehicleStatusImages = new List<Image>();
-
+        #endregion
+        #region("Objects init")
         Vehicle vehicle = new Vehicle();
         Ferry smallFerry = new Ferry();
         Ferry largeFerry = new Ferry();
         TerminalClerk clerk = new TerminalClerk();
-
+        #endregion
+        #region("Variables")
         bool isGoodFuelLevel = true;
-        //bool canOnboard = false;
         int vehicleFuelLevel = 0;
-        int input = 0;
         string typeOfTheVehicle = "/";
-
         string vehicleStatus = "/";
+        Phases nextPhase = Phases.arrival;
+        int totalPhases = Enum.GetValues(typeof(Phases)).Length;
+        #endregion
         #region("Image paths")
         const string carPath = "Images/car.png";
         const string vanPath = "Images/delivery.png";
@@ -53,77 +60,98 @@ namespace FerryPort
         const string inspection = "inspection";
         const string ferry = "ferry";
         #endregion
+
         public FerryPort()
         {
             InitializeComponent();
-            VehiclesStatusImagesInit();
-
-            vehicle = RandomVehicle(vehicles);
-            vehicle.RandomizeFuelLevel();
-            typeOfTheVehicle = vehicle.GetVehicleType();
-
+            VehiclesStatusImagesInit();           
         }
 
         private void OnProceedClick(object sender, RoutedEventArgs e)
         {
-            input++;
-            Console.WriteLine($"Input value: { input }");
+            InitFerry();
 
-            if (smallFerry.GetCurrentCapacity() == 0)
-                smallFerry = new SmallFerry();
-
-            if (largeFerry.GetCurrentCapacity() == 0)
-                largeFerry = new LargeFerry();
-
-            if (input == 1)
+            if (nextPhase == Phases.arrival)
             {
+                NewVehicleInit();
+
                 vehicleStatus = arrival;
-                vehicleType.Content = typeOfTheVehicle;
+                SetVehicleStatusImage();
 
                 DisplayFuel();
                 ClerkCheckFuel();
-                CheckIfCargo();
 
-                SetVehicleStatusImage();
+                if (isGoodFuelLevel && !VehicleIsCargo())
+                    nextPhase = Phases.inspection;
+                else if (isGoodFuelLevel && VehicleIsCargo())
+                    nextPhase++;
             }
-            else if(input == 2 && !isGoodFuelLevel)
+            else if (nextPhase == Phases.gas)
             {
-                vehicleStatus = gasStation;
-                SetVehicleStatusImage();
+                if (isGoodFuelLevel && !VehicleIsCargo())
+                {
+                    nextPhase = Phases.inspection;
+                }
+                else
+                {
+                    vehicleStatus = gasStation;
+                    SetVehicleStatusImage();
+                }
             }
-            else if (input == 3 && isGoodFuelLevel && CheckIfCargo())
+            else if (nextPhase == Phases.inspection)
             {
                 vehicleStatus = inspection;
-                SetVehicleStatusImage();
+                SetVehicleStatusImage();              
             }
-            else if (input == 4 && isGoodFuelLevel)
+            else if (nextPhase == Phases.ferry)
             {
+                Onboarding();
                 vehicleStatus = ferry;
-                // Small ferry
-                if (typeOfTheVehicle == car || typeOfTheVehicle == van)
-                {
-                    Onboarding(vehicle, smallFerry, clerk);
-                    UpdateFerryHUD(smallFerry, smallFerryIncome, smallFerryCapacity);
-                }
-                // Large ferry
-                else if (typeOfTheVehicle == bus || typeOfTheVehicle == truck)
-                {
-                    Onboarding(vehicle, largeFerry, clerk);
-                    UpdateFerryHUD(largeFerry, largeFerryIncome, largeFerryCapacity);
-                }
                 SetVehicleStatusImage();
             }
-            else if(input > 4 && isGoodFuelLevel)
+            else if ((int)nextPhase > totalPhases - 1)
             {
-                input = 0;
-                doorStatus.Content = "N/A";
-                vehicle = RandomVehicle(vehicles);
-                vehicle.RandomizeFuelLevel();
-                typeOfTheVehicle = vehicle.GetVehicleType();
+                nextPhase = Phases.arrival;
             }
 
-            clerkIncome.Content = clerk.ShowIncome();
+            if (nextPhase == Phases.gas && !isGoodFuelLevel)
+                return;
+            else
+                nextPhase = (Phases)(((int)nextPhase + 1) % totalPhases);
 
+        }
+
+        private void Onboarding()
+        {
+            // Small ferry
+            if (typeOfTheVehicle == car || typeOfTheVehicle == van)
+            {
+                StartOnboarding(vehicle, smallFerry, clerk);
+                UpdateFerryHUD(smallFerry, smallFerryIncome, smallFerryCapacity);
+            }
+            // Large ferry
+            else if (typeOfTheVehicle == bus || typeOfTheVehicle == truck)
+            {
+                StartOnboarding(vehicle, largeFerry, clerk);
+                UpdateFerryHUD(largeFerry, largeFerryIncome, largeFerryCapacity);
+            }
+        }
+
+        private void NewVehicleInit()
+        {
+            vehicle = RandomVehicle(vehicles);
+            vehicle.RandomizeFuelLevel();
+            typeOfTheVehicle = vehicle.GetVehicleType();
+            vehicleType.Content = typeOfTheVehicle;
+            doorStatus.Content = "N/A";
+        }
+
+        private void InitFerry()
+        {
+            if (smallFerry.GetCurrentCapacity() == 0)
+                smallFerry = new SmallFerry();
+            if (largeFerry.GetCurrentCapacity() == 0)
+                largeFerry = new LargeFerry();
         }
 
         private void UpdateFerryHUD(Ferry ferry, Label label, ProgressBar progressBar)
@@ -133,7 +161,7 @@ namespace FerryPort
             progressBar.Value = ferry.GetMaxCapacity() - ferry.GetCurrentCapacity();
         }
 
-        private bool CheckIfCargo()
+        private bool VehicleIsCargo()
         {
             if (vehicle is Cargo)
                 return true;
@@ -146,10 +174,6 @@ namespace FerryPort
             {
                 isGoodFuelLevel = false;
             }
-            else
-            {
-                input = 2;
-            }
         }
 
         private void OnClickRefuel(object sender, RoutedEventArgs e)
@@ -160,6 +184,11 @@ namespace FerryPort
 
                 DisplayFuel();
                 isGoodFuelLevel = true;
+
+                if (!VehicleIsCargo())
+                    nextPhase = Phases.ferry;
+                else
+                    nextPhase = Phases.inspection;
             }
         }
 
@@ -173,7 +202,7 @@ namespace FerryPort
 
         private void ShowDoorStatus()
         {
-            if (CheckIfCargo())
+            if (VehicleIsCargo())
                 doorStatus.Content = clerk.CargoInspection(vehicle);
         }
 
@@ -206,7 +235,7 @@ namespace FerryPort
             }
         }
 
-        public string SetVehicleTypeImage(string type)
+        public string GetVehicleImagePath(string type)
         {
             if (type == car)
                 return carPath;
@@ -229,7 +258,7 @@ namespace FerryPort
         private void SetImageSource(Image imagePlace)
         {
             // Recognizing vehicle type and setting image path based on that
-            string vehicleTypePath = SetVehicleTypeImage(vehicle.GetVehicleType());
+            string vehicleTypePath = GetVehicleImagePath(vehicle.GetVehicleType());
             // Ensuring that each vehicle phase always has only one vehicle
             foreach (var img in vehicleStatusImages)
             {
@@ -244,7 +273,7 @@ namespace FerryPort
             }
         }
 
-        private static void Onboarding(Vehicle vehicle, Ferry ferry, TerminalClerk clerk)
+        private static void StartOnboarding(Vehicle vehicle, Ferry ferry, TerminalClerk clerk)
         {
             // Check capacity
             if (ferry.CanBoardVehicle())
