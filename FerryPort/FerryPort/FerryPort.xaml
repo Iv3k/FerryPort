@@ -95,13 +95,13 @@
                                     <Setter Property="Height" Value="100"/>
                                 </Style>
                             </ProgressBar.Style>
-                        </ProgressBar>                    
+                        </ProgressBar>
                     </StackPanel>
 
                     <!-- Small Ferry income -->
-                    <Label x:Name="smallFerryIncome" Content="$ 0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black" FontFamily="Segoe UI" Margin="-1,158,8.6,-37" Grid.Column="0" Height="35" Width="98"/>
+                    <Label x:Name="smallFerryIncome" Content="$ 0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Foreground="Black" FontFamily="Segoe UI" Margin="-1,158,8.6,-37" Grid.Column="0" Height="35" Width="98"/>
                     <!-- Large Ferry income -->
-                    <Label x:Name="largeFerryIncome" Content="$ 0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black" FontFamily="Segoe UI" Margin="1.4,158,-2,-37" Grid.Column="1" Height="35" Width="98" Grid.ColumnSpan="2"/>
+                    <Label x:Name="largeFerryIncome" Content="$ 0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Foreground="Black" FontFamily="Segoe UI" Margin="1.4,158,-2,-37" Grid.Column="1" Height="35" Width="98" Grid.ColumnSpan="2"/>
 
                 </Grid>
             </Border>
@@ -109,18 +109,18 @@
         <!-- Clerk HUD table-->
         <Grid HorizontalAlignment="Left" Height="150" Margin="5,320,0,-20.4" VerticalAlignment="Top" Width="740" RenderTransformOrigin="0.504,0.302">
             <Image Source="Images/steward.png" HorizontalAlignment="Left" Height="85" Margin="30,15,0,0" VerticalAlignment="Top" Width="85"/>
-            <StackPanel HorizontalAlignment="Left" Height="80" Margin="140,25,0,0" VerticalAlignment="Top" Width="80">
-                <Label Content="Vehicle Type:"/>
-                <Label Content="Fuel Level:"/>
-                <Label Content="Door status:"/>
+            <StackPanel HorizontalAlignment="Left" Height="80" Margin="140,28,0,0" VerticalAlignment="Top" Width="100">
+                <Label Content="Vehicle Type:" FontSize="14" FontFamily="Arial" FontWeight="Bold"/>
+                <Label Content="Fuel Level:" FontSize="14" FontFamily="Arial" FontWeight="Bold"/>
+                <Label Content="Door Status:" FontSize="14" FontFamily="Arial" FontWeight="Bold"/>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Left" Height="80" Margin="220,25,0,0" VerticalAlignment="Top" Width="95" RenderTransformOrigin="0.298,0.248">
-                <Label x:Name="vehicleType" Content="/"/>
-                <Label x:Name="fuelLevel" Content="/" />
-                <Label x:Name="doorStatus" Content="N/A" />
+            <StackPanel HorizontalAlignment="Left" Height="77" Margin="220,28,0,0" VerticalAlignment="Top" Width="90">
+                <Label x:Name="vehicleType" Content="/" FontSize="14" HorizontalAlignment="Center" FontFamily="Arial" />
+                <Label x:Name="fuelLevel" Content="/" FontSize="14" HorizontalAlignment="Center" FontFamily="Arial" />
+                <Label x:Name="doorStatus" Content="/" FontSize="14" HorizontalAlignment="Center" FontFamily="Arial" />
             </StackPanel>
             <!-- Refuel button -->
-            <Button x:Name="RefuelBtn" Click="OnClickRefuel" HorizontalAlignment="Left" Margin="315,30,0,0" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.76" Height="30">
+            <Button x:Name="RefuelBtn" Click="OnClickRefuel" HorizontalAlignment="Left" Margin="315,25,0,0" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.76" Height="30">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background" Value="#3282B8"/>
@@ -164,7 +164,7 @@
                 </Button.Content>
             </Button>
             <!-- Inspect button -->
-            <Button x:Name="InspectBtn" Click="OnClickInspect" HorizontalAlignment="Left" Margin="315,75,0,0" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.76" Height="30">
+            <Button x:Name="InspectBtn" Click="OnClickInspect" HorizontalAlignment="Left" Margin="315,70,0,0" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.76" Height="30">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background" Value="#FEA82F"/>
@@ -242,8 +242,8 @@
                     <TextBlock Text="Proceed"/>
                 </Button.Content>
             </Button>
-            <Label Content="$" HorizontalAlignment="Left" Margin="40,100,0,0" VerticalAlignment="Top" Height="25" Width="20"/>
-            <Label x:Name="clerkIncome" Content="0" HorizontalAlignment="Left" Margin="60,100,0,0" VerticalAlignment="Top" Height="25" Width="48"/>
+            <Label Content="$" FontSize="17" FontWeight="Bold" HorizontalAlignment="Left" Margin="40,98,0,0" VerticalAlignment="Top" Height="30" Width="20"/>
+            <Label x:Name="clerkIncome" FontSize="17" Content="0" HorizontalAlignment="Left" Margin="60,98,0,0" VerticalAlignment="Top" Height="32" Width="45"/>
         </Grid>
     </Grid>
 </UserControl>

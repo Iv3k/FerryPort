@@ -40,7 +40,6 @@ namespace FerryPort
         {
             if(_maxCapacity > 0)
             {
-                Console.WriteLine("Onboard...");
                 return true;
             }
             else
@@ -61,7 +60,7 @@ namespace FerryPort
 
         public string ShowRevenue()
         {
-            return $"$ {_revenue}";
+            return $"$ {_revenue:F1}";
         }
     }
 }
