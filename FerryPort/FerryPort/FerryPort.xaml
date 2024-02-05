@@ -159,7 +159,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Image Source="Images/gas-pump.png" Height="20" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="-40,0,39,0.6"/>
-                        <TextBlock Text="REFUEL" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Margin="15,5,-35,5" Width="60"/>
+                        <TextBlock Text="REFUEL" Foreground="Black" FontWeight="Medium" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Margin="15,5,-35,5" Width="60"/>
                     </Grid>
                 </Button.Content>
             </Button>
@@ -203,7 +203,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Image Source="Images/search.png" Height="20" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="-40,0,39,0.6"/>
-                        <TextBlock Text="INSPECT" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Margin="15,5,-35,5" Width="60"/>
+                        <TextBlock Text="INSPECT" Foreground="Black" FontWeight="Medium"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Margin="15,5,-35,5" Width="60"/>
                     </Grid>
                 </Button.Content>
             </Button>
