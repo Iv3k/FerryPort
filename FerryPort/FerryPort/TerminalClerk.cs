@@ -4,7 +4,7 @@ namespace FerryPort
 {
     class TerminalClerk
     {
-        float _income = 0;
+        float _income = 0f;
         const float _feeAmount = 0.10f;
         const int _fillingLimit = 10;
         const float _percentageOfNewFuel = 0.3f;

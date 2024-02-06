@@ -7,7 +7,7 @@ namespace FerryPort
         protected int _maxCapacity;
         protected int _currentCapacity;
         protected float _transportationPrice;
-        protected float _revenue = 0;
+        protected float _revenue = 0f;
 
         protected const string car = "car";
         protected const string bus = "bus";

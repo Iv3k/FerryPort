@@ -4,8 +4,8 @@ namespace FerryPort
 {
     class LargeFerry : Ferry
     {
-        const float _busPrice = 5;
-        const float _truckPrice = 6;
+        const float _busPrice = 5f;
+        const float _truckPrice = 6f;
 
         public LargeFerry(int maxCapacity)
         {
