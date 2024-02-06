@@ -7,17 +7,17 @@ namespace FerryPort
         const float _carPrice = 3;
         const float _vanPrice = 4;
 
-        public SmallFerry()
+        public SmallFerry(int maxCapacity)
         {
-            _maxCapacity = 8;
-            _currentCapacity = _maxCapacity;
+            _maxCapacity = maxCapacity;
+            _currentCapacity = maxCapacity;
         }
 
         public override void DetermineTicketPrice(Vehicle vehicle)
         {
-            if(GetVehicleType(vehicle) == "car")
+            if(GetVehicleType(vehicle) == car)
                 _transportationPrice = _carPrice;
-            else if(GetVehicleType(vehicle) == "van")
+            else if(GetVehicleType(vehicle) == van)
                 _transportationPrice = _vanPrice;
             else
                 Console.WriteLine("Wrong type of the vehicle!");

@@ -243,7 +243,7 @@
                 </Button.Content>
             </Button>
             <!--<Label Content="$" FontSize="17" Foreground="#D3D3D3" FontWeight="Bold" HorizontalAlignment="Left" Margin="40,98,0,0" VerticalAlignment="Top" Height="30" Width="20"/>-->
-            <Label x:Name="clerkIncome" Foreground="#D3D3D3" FontSize="17" Content="0" HorizontalAlignment="Left" Margin="70,98,0,0" VerticalAlignment="Top" Height="32" Width="35" RenderTransformOrigin="0.56,0.069"/>
+            <Label x:Name="clerkIncome" Foreground="#D3D3D3" FontSize="17" Content="0" HorizontalAlignment="Left" Margin="70,98,0,0" VerticalAlignment="Top" Height="32" Width="42" RenderTransformOrigin="0.56,0.069"/>
             <Image Source="Images/money-bag.png" HorizontalAlignment="Left" Height="30" Margin="40,100,0,0" VerticalAlignment="Top" Width="25"/>
         </Grid>
     </Grid>

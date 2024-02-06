@@ -64,16 +64,16 @@ namespace FerryPort
         public FerryPort()
         {
             InitializeComponent();
-            VehiclesStatusImagesInit();           
+            VehiclesStatusImagesAddToList();           
         }
 
         private void OnProceedClick(object sender, RoutedEventArgs e)
         {
-            InitFerry();
+            CreateNewFerry();
 
             if (nextPhase == Phases.arrival)
             {
-                NewVehicleInit();
+                CreateNewRandomVehicle();
 
                 vehicleStatus = arrival;
                 SetVehicleStatusImage();
@@ -138,21 +138,28 @@ namespace FerryPort
             }
         }
 
-        private void NewVehicleInit()
+        private void CreateNewRandomVehicle()
         {
             vehicle = RandomVehicle(vehicles);
             vehicle.RandomizeFuelLevel();
+
             typeOfTheVehicle = vehicle.GetVehicleType();
             vehicleType.Content = typeOfTheVehicle;
             doorStatus.Content = "N/A";
         }
 
-        private void InitFerry()
+        private void CreateNewFerry()
         {
             if (smallFerry.GetCurrentCapacity() == 0)
-                smallFerry = new SmallFerry();
+            {
+                smallFerry = null;
+                smallFerry = new SmallFerry(8);
+            }
             if (largeFerry.GetCurrentCapacity() == 0)
-                largeFerry = new LargeFerry();
+            {
+                largeFerry = null;
+                largeFerry = new LargeFerry(6);
+            }
         }
 
         private void UpdateFerryHUD(Ferry ferry, Label label, ProgressBar progressBar)
@@ -216,7 +223,7 @@ namespace FerryPort
             fuelLevel.Content = fuelLevelValue;
         }
 
-        public void SetVehicleStatusImage()
+        private void SetVehicleStatusImage()
         {   
             if (vehicleStatus == arrival)
             {
@@ -236,7 +243,7 @@ namespace FerryPort
             }
         }
 
-        public string GetVehicleImagePath(string type)
+        private string GetVehicleImagePath(string type)
         {
             if (type == car)
                 return carPath;
@@ -248,7 +255,7 @@ namespace FerryPort
                 return truckPath;
         }
 
-        private void VehiclesStatusImagesInit()
+        private void VehiclesStatusImagesAddToList()
         {
             vehicleStatusImages.Add(vehicleArrivalImg);
             vehicleStatusImages.Add(vehicleGasStationImg);

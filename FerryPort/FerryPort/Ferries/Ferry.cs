@@ -9,6 +9,11 @@ namespace FerryPort
         protected float _transportationPrice;
         protected float _revenue = 0;
 
+        protected const string car = "car";
+        protected const string bus = "bus";
+        protected const string van = "van";
+        protected const string truck = "truck";
+
         public int GetMaxCapacity()
         {
             return _maxCapacity;
